@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/gng_node/gng_node.egg-info/PKG-INFO
+writing dependency_links to ../../build/gng_node/gng_node.egg-info/dependency_links.txt
+writing entry points to ../../build/gng_node/gng_node.egg-info/entry_points.txt
+writing requirements to ../../build/gng_node/gng_node.egg-info/requires.txt
+writing top-level names to ../../build/gng_node/gng_node.egg-info/top_level.txt
+reading manifest file '../../build/gng_node/gng_node.egg-info/SOURCES.txt'
+writing manifest file '../../build/gng_node/gng_node.egg-info/SOURCES.txt'
+running build
+running build_py
+copying gng_node/dbl_gng.py -> /home/mobi/Projects/drone-vajraakhasa/build/gng_node/build/lib/gng_node
+running install
+running install_lib
+copying /home/mobi/Projects/drone-vajraakhasa/build/gng_node/build/lib/gng_node/dbl_gng.py -> /home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages/gng_node
+byte-compiling /home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages/gng_node/dbl_gng.py to dbl_gng.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages/gng_node-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/gng_node/gng_node.egg-info to /home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages/gng_node-0.0.0-py3.10.egg-info
+running install_scripts
+Installing dbl_gng_node script to /home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/gng_node
+writing list of installed files to '/home/mobi/Projects/drone-vajraakhasa/build/gng_node/install.log'

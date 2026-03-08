@@ -1,0 +1,19 @@
+[100%] Built target drone_kinematic
+-- Install configuration: ""
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/offboard_control/drone_kinematic
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/offboard_control/keyboard_control.py
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/package_run_dependencies/offboard_control
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/parent_prefix_path/offboard_control
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/ament_prefix_path.sh
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/path.sh
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/path.dsv
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.bash
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.sh
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.zsh
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.dsv
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.dsv
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/packages/offboard_control
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/cmake/offboard_controlConfig.cmake
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/cmake/offboard_controlConfig-version.cmake
+-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.xml

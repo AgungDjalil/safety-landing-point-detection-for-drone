@@ -1,0 +1,156 @@
+[0.000000] (-) TimerEvent: {}
+[0.000179] (-) JobUnselected: {'identifier': 'gng_node'}
+[0.000301] (-) JobUnselected: {'identifier': 'offboard_control'}
+[0.000312] (-) JobUnselected: {'identifier': 'px4_msgs'}
+[0.000323] (segmentation_node) JobQueued: {'identifier': 'segmentation_node', 'dependencies': OrderedDict()}
+[0.000334] (segmentation_node) JobStarted: {'identifier': 'segmentation_node'}
+[0.005482] (segmentation_node) JobProgress: {'identifier': 'segmentation_node', 'progress': 'cmake'}
+[0.006723] (segmentation_node) JobProgress: {'identifier': 'segmentation_node', 'progress': 'build'}
+[0.006780] (segmentation_node) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node', '--', '-j16', '-l16'], 'cwd': '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node', 'env': OrderedDict([('VIRTUALENVWRAPPER_WORKON_CD', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('WORKON_HOME', '/home/mobi/python_env'), ('USER', 'mobi'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/mobi/Zedcam_ws/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.8/lib64'), ('HOME', '/home/mobi'), ('VIRTUALENVWRAPPER_PYTHON', '/usr/bin/python3'), ('OLDPWD', '/home/mobi'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'id_ID.UTF-8'), ('MANAGERPID', '2083'), ('SYSTEMD_EXEC_PID', '2800'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4760'), ('COLCON_PREFIX_PATH', '/home/mobi/Zedcam_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'mobi'), ('JOURNAL_STREAM', '8:13092'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'mobi'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/cuda-12.8/bin:/home/mobi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/xtensa-esp-elf/bin/:/opt/xtensa-esp-elf/bin/'), ('SESSION_MANAGER', 'local/mobi-AERO-17-YD:@/tmp/.ICE-unix/2545,unix/mobi-AERO-17-YD:/tmp/.ICE-unix/2545'), ('INVOCATION_ID', 'ddc8eaa4cd7c4cffb69eb0a901947def'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:0406f57e-036e-4e9b-a532-e1b10672a183'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VIRTUALENVWRAPPER_PROJECT_FILENAME', '.project'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('VIRTUALENVWRAPPER_HOOK_DIR', '/home/mobi/python_env'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('VIRTUALENVWRAPPER_SCRIPT', '/usr/local/bin/virtualenvwrapper.sh'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node'), ('TURTLEBOT3_MODEL', 'waffle_pi'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/mobi/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('VIRTUALENVWRAPPER_VIRTUALENV', '/usr/local/bin/virtualenv'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/opt/ros/humble')]), 'shell': False}
+[0.087877] (segmentation_node) StdoutLine: {'line': b'[ 20%] Built target cylinder_crop\n'}
+[0.089164] (segmentation_node) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/landing_circle.dir/src/landing_circle.cpp.o\x1b[0m\n'}
+[0.092820] (segmentation_node) StdoutLine: {'line': b'[ 50%] Built target plane_segmentation_gng\n'}
+[0.093180] (segmentation_node) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o\x1b[0m\n'}
+[0.093804] (segmentation_node) StdoutLine: {'line': b'[ 80%] Built target ddgng_node\n'}
+[0.099880] (-) TimerEvent: {}
+[0.200095] (-) TimerEvent: {}
+[0.300401] (-) TimerEvent: {}
+[0.400736] (-) TimerEvent: {}
+[0.500989] (-) TimerEvent: {}
+[0.601397] (-) TimerEvent: {}
+[0.701730] (-) TimerEvent: {}
+[0.802050] (-) TimerEvent: {}
+[0.902328] (-) TimerEvent: {}
+[1.002660] (-) TimerEvent: {}
+[1.103037] (-) TimerEvent: {}
+[1.203349] (-) TimerEvent: {}
+[1.303637] (-) TimerEvent: {}
+[1.403930] (-) TimerEvent: {}
+[1.504218] (-) TimerEvent: {}
+[1.604538] (-) TimerEvent: {}
+[1.704816] (-) TimerEvent: {}
+[1.805156] (-) TimerEvent: {}
+[1.905433] (-) TimerEvent: {}
+[2.005707] (-) TimerEvent: {}
+[2.105992] (-) TimerEvent: {}
+[2.206261] (-) TimerEvent: {}
+[2.306541] (-) TimerEvent: {}
+[2.406822] (-) TimerEvent: {}
+[2.507260] (-) TimerEvent: {}
+[2.607563] (-) TimerEvent: {}
+[2.707850] (-) TimerEvent: {}
+[2.808144] (-) TimerEvent: {}
+[2.908469] (-) TimerEvent: {}
+[3.008816] (-) TimerEvent: {}
+[3.109129] (-) TimerEvent: {}
+[3.209427] (-) TimerEvent: {}
+[3.309735] (-) TimerEvent: {}
+[3.410040] (-) TimerEvent: {}
+[3.510341] (-) TimerEvent: {}
+[3.610632] (-) TimerEvent: {}
+[3.710917] (-) TimerEvent: {}
+[3.811207] (-) TimerEvent: {}
+[3.911519] (-) TimerEvent: {}
+[4.011808] (-) TimerEvent: {}
+[4.112142] (-) TimerEvent: {}
+[4.212423] (-) TimerEvent: {}
+[4.312726] (-) TimerEvent: {}
+[4.413048] (-) TimerEvent: {}
+[4.513380] (-) TimerEvent: {}
+[4.613700] (-) TimerEvent: {}
+[4.714050] (-) TimerEvent: {}
+[4.814366] (-) TimerEvent: {}
+[4.914690] (-) TimerEvent: {}
+[5.015012] (-) TimerEvent: {}
+[5.115356] (-) TimerEvent: {}
+[5.215653] (-) TimerEvent: {}
+[5.315967] (-) TimerEvent: {}
+[5.416307] (-) TimerEvent: {}
+[5.516608] (-) TimerEvent: {}
+[5.616944] (-) TimerEvent: {}
+[5.717292] (-) TimerEvent: {}
+[5.817596] (-) TimerEvent: {}
+[5.917900] (-) TimerEvent: {}
+[6.018136] (-) TimerEvent: {}
+[6.118452] (-) TimerEvent: {}
+[6.218772] (-) TimerEvent: {}
+[6.319096] (-) TimerEvent: {}
+[6.419346] (-) TimerEvent: {}
+[6.519568] (-) TimerEvent: {}
+[6.619787] (-) TimerEvent: {}
+[6.720011] (-) TimerEvent: {}
+[6.820261] (-) TimerEvent: {}
+[6.920500] (-) TimerEvent: {}
+[7.020734] (-) TimerEvent: {}
+[7.120951] (-) TimerEvent: {}
+[7.221220] (-) TimerEvent: {}
+[7.321417] (-) TimerEvent: {}
+[7.421653] (-) TimerEvent: {}
+[7.521928] (-) TimerEvent: {}
+[7.622213] (-) TimerEvent: {}
+[7.722540] (-) TimerEvent: {}
+[7.822770] (-) TimerEvent: {}
+[7.923145] (-) TimerEvent: {}
+[8.023397] (-) TimerEvent: {}
+[8.123632] (-) TimerEvent: {}
+[8.223816] (-) TimerEvent: {}
+[8.324077] (-) TimerEvent: {}
+[8.424363] (-) TimerEvent: {}
+[8.524674] (-) TimerEvent: {}
+[8.624998] (-) TimerEvent: {}
+[8.725270] (-) TimerEvent: {}
+[8.825569] (-) TimerEvent: {}
+[8.853409] (segmentation_node) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX executable plane_segmentation_ransac\x1b[0m\n'}
+[8.925741] (-) TimerEvent: {}
+[8.963754] (segmentation_node) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable landing_circle\x1b[0m\n'}
+[9.025850] (-) TimerEvent: {}
+[9.126152] (-) TimerEvent: {}
+[9.226515] (-) TimerEvent: {}
+[9.326885] (-) TimerEvent: {}
+[9.427160] (-) TimerEvent: {}
+[9.527489] (-) TimerEvent: {}
+[9.620013] (segmentation_node) StdoutLine: {'line': b'[100%] Built target landing_circle\n'}
+[9.627607] (-) TimerEvent: {}
+[9.728013] (-) TimerEvent: {}
+[9.828404] (-) TimerEvent: {}
+[9.928755] (-) TimerEvent: {}
+[10.029093] (-) TimerEvent: {}
+[10.129512] (-) TimerEvent: {}
+[10.171006] (segmentation_node) StdoutLine: {'line': b'[100%] Built target plane_segmentation_ransac\n'}
+[10.203706] (segmentation_node) CommandEnded: {'returncode': 0}
+[10.204133] (segmentation_node) JobProgress: {'identifier': 'segmentation_node', 'progress': 'install'}
+[10.209652] (segmentation_node) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node'], 'cwd': '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node', 'env': OrderedDict([('VIRTUALENVWRAPPER_WORKON_CD', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('WORKON_HOME', '/home/mobi/python_env'), ('USER', 'mobi'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/mobi/Zedcam_ws/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.8/lib64'), ('HOME', '/home/mobi'), ('VIRTUALENVWRAPPER_PYTHON', '/usr/bin/python3'), ('OLDPWD', '/home/mobi'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'id_ID.UTF-8'), ('MANAGERPID', '2083'), ('SYSTEMD_EXEC_PID', '2800'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4760'), ('COLCON_PREFIX_PATH', '/home/mobi/Zedcam_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'mobi'), ('JOURNAL_STREAM', '8:13092'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'mobi'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/cuda-12.8/bin:/home/mobi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/xtensa-esp-elf/bin/:/opt/xtensa-esp-elf/bin/'), ('SESSION_MANAGER', 'local/mobi-AERO-17-YD:@/tmp/.ICE-unix/2545,unix/mobi-AERO-17-YD:/tmp/.ICE-unix/2545'), ('INVOCATION_ID', 'ddc8eaa4cd7c4cffb69eb0a901947def'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:0406f57e-036e-4e9b-a532-e1b10672a183'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VIRTUALENVWRAPPER_PROJECT_FILENAME', '.project'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('VIRTUALENVWRAPPER_HOOK_DIR', '/home/mobi/python_env'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('VIRTUALENVWRAPPER_SCRIPT', '/usr/local/bin/virtualenvwrapper.sh'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node'), ('TURTLEBOT3_MODEL', 'waffle_pi'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/mobi/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('VIRTUALENVWRAPPER_VIRTUALENV', '/usr/local/bin/virtualenv'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/opt/ros/humble')]), 'shell': False}
+[10.214233] (segmentation_node) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[10.215022] (segmentation_node) StdoutLine: {'line': b'-- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/landing_circle\n'}
+[10.217888] (segmentation_node) StdoutLine: {'line': b'-- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/landing_circle" to ""\n'}
+[10.218413] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/cylinder_crop\n'}
+[10.219031] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_gng\n'}
+[10.219602] (segmentation_node) StdoutLine: {'line': b'-- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_ransac\n'}
+[10.222444] (segmentation_node) StdoutLine: {'line': b'-- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_ransac" to ""\n'}
+[10.222714] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/ddgng_node\n'}
+[10.222768] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include\n'}
+[10.222818] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node\n'}
+[10.222865] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/plane_segmentation_gng.hpp\n'}
+[10.222900] (segmentation_node) StdoutLine: {'line': b'-- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/landing_circle.hpp\n'}
+[10.222954] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/ddgng.hpp\n'}
+[10.223008] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node\n'}
+[10.223071] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/publish_safety_point.launch.py\n'}
+[10.223115] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/package_run_dependencies/segmentation_node\n'}
+[10.223150] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/parent_prefix_path/segmentation_node\n'}
+[10.223190] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/ament_prefix_path.sh\n'}
+[10.223224] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/ament_prefix_path.dsv\n'}
+[10.223258] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/path.sh\n'}
+[10.223292] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/path.dsv\n'}
+[10.223326] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.bash\n'}
+[10.223387] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.sh\n'}
+[10.223419] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.zsh\n'}
+[10.223453] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.dsv\n'}
+[10.223484] (segmentation_node) StdoutLine: {'line': b'-- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.dsv\n'}
+[10.223514] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/packages/segmentation_node\n'}
+[10.223561] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/cmake/segmentation_nodeConfig.cmake\n'}
+[10.223593] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/cmake/segmentation_nodeConfig-version.cmake\n'}
+[10.223623] (segmentation_node) StdoutLine: {'line': b'-- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.xml\n'}
+[10.224346] (segmentation_node) CommandEnded: {'returncode': 0}
+[10.229591] (-) TimerEvent: {}
+[10.235130] (segmentation_node) JobEnded: {'identifier': 'segmentation_node', 'rc': 0}
+[10.235455] (-) EventReactorShutdown: {}

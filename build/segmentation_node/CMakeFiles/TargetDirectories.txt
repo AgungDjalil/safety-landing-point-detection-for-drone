@@ -1,0 +1,15 @@
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/uninstall.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/segmentation_node_uninstall.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/cylinder_crop.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/plane_segmentation_gng.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/plane_segmentation_ransac.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/ddgng_node.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/landing_circle.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/cloud_size_node.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/test.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/edit_cache.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/rebuild_cache.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/list_install_components.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/install.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/install/local.dir
+/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node/CMakeFiles/install/strip.dir

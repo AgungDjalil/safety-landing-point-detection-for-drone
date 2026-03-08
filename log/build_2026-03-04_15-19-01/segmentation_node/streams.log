@@ -1,0 +1,41 @@
+[0.017s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node -- -j16 -l16
+[0.095s] [35m[1mConsolidate compiler generated dependencies of target landing_circle[0m
+[0.124s] [ 20%] Built target cylinder_crop
+[0.125s] [ 80%] Built target plane_segmentation_ransac
+[0.125s] [ 80%] Built target ddgng_node
+[0.125s] [ 80%] Built target plane_segmentation_gng
+[0.147s] [ 90%] [32mBuilding CXX object CMakeFiles/landing_circle.dir/src/landing_circle.cpp.o[0m
+[22.810s] [100%] [32m[1mLinking CXX executable landing_circle[0m
+[24.219s] [100%] Built target landing_circle
+[24.257s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node -- -j16 -l16
+[24.275s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node
+[24.286s] -- Install configuration: ""
+[24.286s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/landing_circle
+[24.291s] -- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/landing_circle" to ""
+[24.291s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/cylinder_crop
+[24.291s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_gng
+[24.292s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_ransac
+[24.292s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/ddgng_node
+[24.292s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include
+[24.292s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node
+[24.292s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/plane_segmentation_gng.hpp
+[24.292s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/landing_circle.hpp
+[24.292s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/ddgng.hpp
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/publish_safety_point.launch.py
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/package_run_dependencies/segmentation_node
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/parent_prefix_path/segmentation_node
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/ament_prefix_path.sh
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/ament_prefix_path.dsv
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/path.sh
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/path.dsv
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.bash
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.sh
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.zsh
+[24.293s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.dsv
+[24.294s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.dsv
+[24.294s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/packages/segmentation_node
+[24.294s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/cmake/segmentation_nodeConfig.cmake
+[24.294s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/cmake/segmentation_nodeConfig-version.cmake
+[24.294s] -- Up-to-date: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.xml
+[24.296s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node

@@ -1,0 +1,5 @@
+[ 50%] Built target plane_segmentation_gng
+[ 50%] [32mBuilding CXX object CMakeFiles/landing_circle.dir/src/landing_circle.cpp.o[0m
+[ 50%] Built target cylinder_crop
+[ 70%] Built target plane_segmentation_ransac
+[ 90%] Built target ddgng_node

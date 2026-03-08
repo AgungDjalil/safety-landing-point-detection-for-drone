@@ -1,0 +1,124 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-cbd580781828e0acc7c9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "segmentation_node",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_size_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_size_node-62ff32c6ce379d64aa4a.json",
+					"name" : "cloud_size_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cylinder_crop::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cylinder_crop-1f13b238a7080dea8207.json",
+					"name" : "cylinder_crop",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ddgng_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ddgng_node-5339f7509c3156d93c42.json",
+					"name" : "ddgng_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "landing_circle::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-landing_circle-c501c627bde2c2793d8d.json",
+					"name" : "landing_circle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "plane_segmentation_gng::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-plane_segmentation_gng-337c6a175aa5351582b3.json",
+					"name" : "plane_segmentation_gng",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "plane_segmentation_ransac::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-plane_segmentation_ransac-4cdbf3f7c087e7353e3e.json",
+					"name" : "plane_segmentation_ransac",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "segmentation_node_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-segmentation_node_uninstall-85c2f6843d7d7a703697.json",
+					"name" : "segmentation_node_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-b3102ef1d58fa86d7078.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node",
+		"source" : "/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

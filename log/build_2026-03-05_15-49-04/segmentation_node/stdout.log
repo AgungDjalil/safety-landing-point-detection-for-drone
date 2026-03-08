@@ -1,0 +1,6 @@
+[ 16%] Built target cloud_size_node
+[ 91%] [32mBuilding CXX object CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o[0m
+[ 91%] Built target cylinder_crop
+[ 91%] Built target ddgng_node
+[ 91%] Built target landing_circle
+[ 91%] Built target plane_segmentation_gng

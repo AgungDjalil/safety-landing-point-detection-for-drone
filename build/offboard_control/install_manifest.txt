@@ -1,0 +1,17 @@
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/offboard_control/drone_kinematic
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/offboard_control/keyboard_control.py
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/package_run_dependencies/offboard_control
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/parent_prefix_path/offboard_control
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/ament_prefix_path.sh
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/ament_prefix_path.dsv
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/path.sh
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/path.dsv
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.bash
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.sh
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.zsh
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.dsv
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.dsv
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/packages/offboard_control
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/cmake/offboard_controlConfig.cmake
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/cmake/offboard_controlConfig-version.cmake
+/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.xml

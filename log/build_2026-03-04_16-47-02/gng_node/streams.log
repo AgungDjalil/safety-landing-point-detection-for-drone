@@ -1,0 +1,24 @@
+[1.125s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/src/gng_node': PYTHONPATH=/home/mobi/Projects/drone-vajraakhasa/build/gng_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gng_node build --build-base /home/mobi/Projects/drone-vajraakhasa/build/gng_node/build install --record /home/mobi/Projects/drone-vajraakhasa/build/gng_node/install.log --single-version-externally-managed install_data
+[1.256s] running egg_info
+[1.278s] writing ../../build/gng_node/gng_node.egg-info/PKG-INFO
+[1.280s] writing dependency_links to ../../build/gng_node/gng_node.egg-info/dependency_links.txt
+[1.281s] writing entry points to ../../build/gng_node/gng_node.egg-info/entry_points.txt
+[1.281s] writing requirements to ../../build/gng_node/gng_node.egg-info/requires.txt
+[1.281s] writing top-level names to ../../build/gng_node/gng_node.egg-info/top_level.txt
+[1.327s] reading manifest file '../../build/gng_node/gng_node.egg-info/SOURCES.txt'
+[1.330s] writing manifest file '../../build/gng_node/gng_node.egg-info/SOURCES.txt'
+[1.330s] running build
+[1.330s] running build_py
+[1.331s] copying gng_node/dbl_gng_node.py -> /home/mobi/Projects/drone-vajraakhasa/build/gng_node/build/lib/gng_node
+[1.331s] running install
+[1.338s] running install_lib
+[1.362s] copying /home/mobi/Projects/drone-vajraakhasa/build/gng_node/build/lib/gng_node/dbl_gng_node.py -> /home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages/gng_node
+[1.363s] byte-compiling /home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages/gng_node/dbl_gng_node.py to dbl_gng_node.cpython-310.pyc
+[1.365s] running install_data
+[1.365s] running install_egg_info
+[1.389s] removing '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages/gng_node-0.0.0-py3.10.egg-info' (and everything under it)
+[1.389s] Copying ../../build/gng_node/gng_node.egg-info to /home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages/gng_node-0.0.0-py3.10.egg-info
+[1.390s] running install_scripts
+[1.576s] Installing dbl_gng_node script to /home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/gng_node
+[1.576s] writing list of installed files to '/home/mobi/Projects/drone-vajraakhasa/build/gng_node/install.log'
+[1.617s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/src/gng_node' returned '0': PYTHONPATH=/home/mobi/Projects/drone-vajraakhasa/build/gng_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gng_node build --build-base /home/mobi/Projects/drone-vajraakhasa/build/gng_node/build install --record /home/mobi/Projects/drone-vajraakhasa/build/gng_node/install.log --single-version-externally-managed install_data

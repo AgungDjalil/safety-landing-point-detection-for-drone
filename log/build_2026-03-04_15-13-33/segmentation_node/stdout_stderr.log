@@ -1,0 +1,42 @@
+[ 50%] Built target plane_segmentation_gng
+[ 50%] [32mBuilding CXX object CMakeFiles/landing_circle.dir/src/landing_circle.cpp.o[0m
+[ 50%] Built target cylinder_crop
+[ 70%] Built target plane_segmentation_ransac
+[ 90%] Built target ddgng_node
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/include/segmentation_node/landing_circle.hpp:10[m[K,
+                 from [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/landing_circle.cpp:3[m[K:
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/landing_circle.cpp:[m[K In member function ‘[01m[Kvoid LandingCircle::cbCloud(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::ConstSharedPtr)[m[K’:
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/landing_circle.cpp:81:40:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kstd::size_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} to ‘[01m[Kconst char*[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+   81 |   RCLCPP_INFO(get_logger(), [01;31m[Kcloud->size()[m[K);
+      |                             [01;31m[K~~~~~~~~~~~^~[m[K
+      |                                        [01;31m[K|[m[K
+      |                                        [01;31m[Kstd::size_t {aka long unsigned int}[m[K
+In file included from [01m[K/opt/ros/humble/include/rmw/rmw/types.h:28[m[K,
+                 from [01m[K/opt/ros/humble/include/rcl/rcl/types.h:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rcl/rcl/log_level.h:22[m[K,
+                 from [01m[K/opt/ros/humble/include/rcl/rcl/arguments.h:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rcl/rcl/context.h:28[m[K,
+                 from [01m[K/opt/ros/humble/include/rcl/rcl/guard_condition.h:26[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:30[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/include/segmentation_node/landing_circle.hpp:10[m[K,
+                 from [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/landing_circle.cpp:3[m[K:
+[01m[K/opt/ros/humble/include/rcutils/rcutils/logging.h:479:16:[m[K [01;36m[Knote: [m[K  initializing argument 4 of ‘[01m[Kvoid rcutils_log(const rcutils_log_location_t*, int, const char*, const char*, ...)[m[K’
+  479 |   [01;36m[Kconst char * format[m[K,
+      |   [01;36m[K~~~~~~~~~~~~~^~~~~~[m[K
+gmake[2]: *** [CMakeFiles/landing_circle.dir/build.make:76: CMakeFiles/landing_circle.dir/src/landing_circle.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:249: CMakeFiles/landing_circle.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

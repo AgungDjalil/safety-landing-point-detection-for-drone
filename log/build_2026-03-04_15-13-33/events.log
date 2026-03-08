@@ -1,0 +1,213 @@
+[0.000000] (-) TimerEvent: {}
+[0.000560] (-) JobUnselected: {'identifier': 'gng_node'}
+[0.000807] (-) JobUnselected: {'identifier': 'offboard_control'}
+[0.000867] (-) JobUnselected: {'identifier': 'px4_msgs'}
+[0.000891] (segmentation_node) JobQueued: {'identifier': 'segmentation_node', 'dependencies': OrderedDict()}
+[0.000917] (segmentation_node) JobStarted: {'identifier': 'segmentation_node'}
+[0.014804] (segmentation_node) JobProgress: {'identifier': 'segmentation_node', 'progress': 'cmake'}
+[0.016270] (segmentation_node) JobProgress: {'identifier': 'segmentation_node', 'progress': 'build'}
+[0.017566] (segmentation_node) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node', '--', '-j16', '-l16'], 'cwd': '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node', 'env': OrderedDict([('VIRTUALENVWRAPPER_WORKON_CD', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('WORKON_HOME', '/home/mobi/python_env'), ('USER', 'mobi'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/lib:/home/mobi/Zedcam_ws/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.8/lib64'), ('HOME', '/home/mobi'), ('VIRTUALENVWRAPPER_PYTHON', '/usr/bin/python3'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'id_ID.UTF-8'), ('MANAGERPID', '2078'), ('SYSTEMD_EXEC_PID', '2771'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4118'), ('COLCON_PREFIX_PATH', '/home/mobi/Projects/drone-vajraakhasa/install:/home/mobi/Zedcam_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'mobi'), ('JOURNAL_STREAM', '8:24629'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'mobi'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/bin:/opt/ros/humble/bin:/usr/local/cuda-12.8/bin:/home/mobi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/xtensa-esp-elf/bin/:/opt/xtensa-esp-elf/bin/'), ('SESSION_MANAGER', 'local/mobi-AERO-17-YD:@/tmp/.ICE-unix/2519,unix/mobi-AERO-17-YD:/tmp/.ICE-unix/2519'), ('INVOCATION_ID', 'f3622073653445b0a08098c9249d588a'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:29774431-1970-4fe5-b613-0682798a478d'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VIRTUALENVWRAPPER_PROJECT_FILENAME', '.project'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('VIRTUALENVWRAPPER_HOOK_DIR', '/home/mobi/python_env'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('VIRTUALENVWRAPPER_SCRIPT', '/usr/local/bin/virtualenvwrapper.sh'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node'), ('TURTLEBOT3_MODEL', 'waffle_pi'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/mobi/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('VIRTUALENVWRAPPER_VIRTUALENV', '/usr/local/bin/virtualenv'), ('PYTHONPATH', '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/local/lib/python3.10/dist-packages:/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble')]), 'shell': False}
+[0.099494] (-) TimerEvent: {}
+[0.126717] (segmentation_node) StdoutLine: {'line': b'[ 50%] Built target plane_segmentation_gng\n'}
+[0.127039] (segmentation_node) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/landing_circle.dir/src/landing_circle.cpp.o\x1b[0m\n'}
+[0.127157] (segmentation_node) StdoutLine: {'line': b'[ 50%] Built target cylinder_crop\n'}
+[0.129648] (segmentation_node) StdoutLine: {'line': b'[ 70%] Built target plane_segmentation_ransac\n'}
+[0.130509] (segmentation_node) StdoutLine: {'line': b'[ 90%] Built target ddgng_node\n'}
+[0.199653] (-) TimerEvent: {}
+[0.300196] (-) TimerEvent: {}
+[0.400574] (-) TimerEvent: {}
+[0.500962] (-) TimerEvent: {}
+[0.601493] (-) TimerEvent: {}
+[0.701980] (-) TimerEvent: {}
+[0.802486] (-) TimerEvent: {}
+[0.903049] (-) TimerEvent: {}
+[1.003510] (-) TimerEvent: {}
+[1.104213] (-) TimerEvent: {}
+[1.204945] (-) TimerEvent: {}
+[1.305520] (-) TimerEvent: {}
+[1.406353] (-) TimerEvent: {}
+[1.506824] (-) TimerEvent: {}
+[1.607326] (-) TimerEvent: {}
+[1.707953] (-) TimerEvent: {}
+[1.808465] (-) TimerEvent: {}
+[1.909188] (-) TimerEvent: {}
+[2.009710] (-) TimerEvent: {}
+[2.110302] (-) TimerEvent: {}
+[2.211167] (-) TimerEvent: {}
+[2.312017] (-) TimerEvent: {}
+[2.412601] (-) TimerEvent: {}
+[2.513353] (-) TimerEvent: {}
+[2.613823] (-) TimerEvent: {}
+[2.714653] (-) TimerEvent: {}
+[2.815411] (-) TimerEvent: {}
+[2.915920] (-) TimerEvent: {}
+[3.016685] (-) TimerEvent: {}
+[3.117125] (-) TimerEvent: {}
+[3.217595] (-) TimerEvent: {}
+[3.318084] (-) TimerEvent: {}
+[3.418637] (-) TimerEvent: {}
+[3.519096] (-) TimerEvent: {}
+[3.619610] (-) TimerEvent: {}
+[3.720129] (-) TimerEvent: {}
+[3.820709] (-) TimerEvent: {}
+[3.921383] (-) TimerEvent: {}
+[4.021794] (-) TimerEvent: {}
+[4.122411] (-) TimerEvent: {}
+[4.223161] (-) TimerEvent: {}
+[4.323780] (-) TimerEvent: {}
+[4.424307] (-) TimerEvent: {}
+[4.524693] (-) TimerEvent: {}
+[4.625233] (-) TimerEvent: {}
+[4.725861] (-) TimerEvent: {}
+[4.826423] (-) TimerEvent: {}
+[4.927028] (-) TimerEvent: {}
+[5.027532] (-) TimerEvent: {}
+[5.128120] (-) TimerEvent: {}
+[5.228722] (-) TimerEvent: {}
+[5.329275] (-) TimerEvent: {}
+[5.429680] (-) TimerEvent: {}
+[5.530162] (-) TimerEvent: {}
+[5.630727] (-) TimerEvent: {}
+[5.731576] (-) TimerEvent: {}
+[5.832156] (-) TimerEvent: {}
+[5.932631] (-) TimerEvent: {}
+[6.033209] (-) TimerEvent: {}
+[6.133790] (-) TimerEvent: {}
+[6.234438] (-) TimerEvent: {}
+[6.335292] (-) TimerEvent: {}
+[6.435827] (-) TimerEvent: {}
+[6.536348] (-) TimerEvent: {}
+[6.637093] (-) TimerEvent: {}
+[6.737779] (-) TimerEvent: {}
+[6.838304] (-) TimerEvent: {}
+[6.938880] (-) TimerEvent: {}
+[7.039568] (-) TimerEvent: {}
+[7.140037] (-) TimerEvent: {}
+[7.240531] (-) TimerEvent: {}
+[7.341072] (-) TimerEvent: {}
+[7.441633] (-) TimerEvent: {}
+[7.542441] (-) TimerEvent: {}
+[7.642975] (-) TimerEvent: {}
+[7.743587] (-) TimerEvent: {}
+[7.844301] (-) TimerEvent: {}
+[7.944802] (-) TimerEvent: {}
+[8.045463] (-) TimerEvent: {}
+[8.146016] (-) TimerEvent: {}
+[8.246605] (-) TimerEvent: {}
+[8.347030] (-) TimerEvent: {}
+[8.447483] (-) TimerEvent: {}
+[8.548328] (-) TimerEvent: {}
+[8.648960] (-) TimerEvent: {}
+[8.749673] (-) TimerEvent: {}
+[8.850242] (-) TimerEvent: {}
+[8.950849] (-) TimerEvent: {}
+[9.051311] (-) TimerEvent: {}
+[9.152130] (-) TimerEvent: {}
+[9.188501] (segmentation_node) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24\x1b[m\x1b[K,\n'}
+[9.188911] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[9.189001] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24\x1b[m\x1b[K,\n'}
+[9.189070] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[9.189140] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25\x1b[m\x1b[K,\n'}
+[9.189209] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[9.189272] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[9.189335] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37\x1b[m\x1b[K,\n'}
+[9.189399] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25\x1b[m\x1b[K,\n'}
+[9.189463] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[9.189526] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155\x1b[m\x1b[K,\n'}
+[9.189588] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/include/segmentation_node/landing_circle.hpp:10\x1b[m\x1b[K,\n'}
+[9.189663] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/landing_circle.cpp:3\x1b[m\x1b[K:\n'}
+[9.189726] (segmentation_node) StderrLine: {'line': b'\x1b[01m\x1b[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/landing_circle.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid LandingCircle::cbCloud(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::ConstSharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.189803] (segmentation_node) StderrLine: {'line': b'\x1b[01m\x1b[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/landing_circle.cpp:81:40:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid conversion from \xe2\x80\x98\x1b[01m\x1b[Kstd::size_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kconst char*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive\x07-fpermissive\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[9.189874] (segmentation_node) StderrLine: {'line': b'   81 |   RCLCPP_INFO(get_logger(), \x1b[01;31m\x1b[Kcloud->size()\x1b[m\x1b[K);\n'}
+[9.189936] (segmentation_node) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K~~~~~~~~~~~^~\x1b[m\x1b[K\n'}
+[9.189998] (segmentation_node) StderrLine: {'line': b'      |                                        \x1b[01;31m\x1b[K|\x1b[m\x1b[K\n'}
+[9.190059] (segmentation_node) StderrLine: {'line': b'      |                                        \x1b[01;31m\x1b[Kstd::size_t {aka long unsigned int}\x1b[m\x1b[K\n'}
+[9.190122] (segmentation_node) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rmw/rmw/types.h:28\x1b[m\x1b[K,\n'}
+[9.190182] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rcl/rcl/types.h:20\x1b[m\x1b[K,\n'}
+[9.190245] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rcl/rcl/log_level.h:22\x1b[m\x1b[K,\n'}
+[9.190307] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rcl/rcl/arguments.h:21\x1b[m\x1b[K,\n'}
+[9.190368] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rcl/rcl/context.h:28\x1b[m\x1b[K,\n'}
+[9.190429] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rcl/rcl/guard_condition.h:26\x1b[m\x1b[K,\n'}
+[9.190490] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:30\x1b[m\x1b[K,\n'}
+[9.190550] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25\x1b[m\x1b[K,\n'}
+[9.190612] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[9.190673] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155\x1b[m\x1b[K,\n'}
+[9.190734] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/include/segmentation_node/landing_circle.hpp:10\x1b[m\x1b[K,\n'}
+[9.190814] (segmentation_node) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/landing_circle.cpp:3\x1b[m\x1b[K:\n'}
+[9.190877] (segmentation_node) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rcutils/rcutils/logging.h:479:16:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  initializing argument 4 of \xe2\x80\x98\x1b[01m\x1b[Kvoid rcutils_log(const rcutils_log_location_t*, int, const char*, const char*, ...)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[9.190948] (segmentation_node) StderrLine: {'line': b'  479 |   \x1b[01;36m\x1b[Kconst char * format\x1b[m\x1b[K,\n'}
+[9.191010] (segmentation_node) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K~~~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[9.252360] (-) TimerEvent: {}
+[9.353313] (-) TimerEvent: {}
+[9.454282] (-) TimerEvent: {}
+[9.554920] (-) TimerEvent: {}
+[9.655605] (-) TimerEvent: {}
+[9.756249] (-) TimerEvent: {}
+[9.856881] (-) TimerEvent: {}
+[9.957436] (-) TimerEvent: {}
+[10.058083] (-) TimerEvent: {}
+[10.158679] (-) TimerEvent: {}
+[10.259312] (-) TimerEvent: {}
+[10.359842] (-) TimerEvent: {}
+[10.460267] (-) TimerEvent: {}
+[10.560730] (-) TimerEvent: {}
+[10.661223] (-) TimerEvent: {}
+[10.761707] (-) TimerEvent: {}
+[10.862207] (-) TimerEvent: {}
+[10.962781] (-) TimerEvent: {}
+[11.063375] (-) TimerEvent: {}
+[11.163937] (-) TimerEvent: {}
+[11.264542] (-) TimerEvent: {}
+[11.365340] (-) TimerEvent: {}
+[11.465898] (-) TimerEvent: {}
+[11.566522] (-) TimerEvent: {}
+[11.667256] (-) TimerEvent: {}
+[11.767859] (-) TimerEvent: {}
+[11.868383] (-) TimerEvent: {}
+[11.969060] (-) TimerEvent: {}
+[12.070185] (-) TimerEvent: {}
+[12.170813] (-) TimerEvent: {}
+[12.271441] (-) TimerEvent: {}
+[12.372099] (-) TimerEvent: {}
+[12.472534] (-) TimerEvent: {}
+[12.573148] (-) TimerEvent: {}
+[12.673813] (-) TimerEvent: {}
+[12.774463] (-) TimerEvent: {}
+[12.875015] (-) TimerEvent: {}
+[12.975540] (-) TimerEvent: {}
+[13.076066] (-) TimerEvent: {}
+[13.176684] (-) TimerEvent: {}
+[13.277308] (-) TimerEvent: {}
+[13.377827] (-) TimerEvent: {}
+[13.478671] (-) TimerEvent: {}
+[13.579398] (-) TimerEvent: {}
+[13.680147] (-) TimerEvent: {}
+[13.780699] (-) TimerEvent: {}
+[13.881345] (-) TimerEvent: {}
+[13.981754] (-) TimerEvent: {}
+[14.082185] (-) TimerEvent: {}
+[14.182684] (-) TimerEvent: {}
+[14.283323] (-) TimerEvent: {}
+[14.383818] (-) TimerEvent: {}
+[14.484336] (-) TimerEvent: {}
+[14.584714] (-) TimerEvent: {}
+[14.685485] (-) TimerEvent: {}
+[14.786306] (-) TimerEvent: {}
+[14.886953] (-) TimerEvent: {}
+[14.987901] (-) TimerEvent: {}
+[15.088556] (-) TimerEvent: {}
+[15.189108] (-) TimerEvent: {}
+[15.289778] (-) TimerEvent: {}
+[15.390782] (-) TimerEvent: {}
+[15.491182] (-) TimerEvent: {}
+[15.591640] (-) TimerEvent: {}
+[15.692350] (-) TimerEvent: {}
+[15.792958] (-) TimerEvent: {}
+[15.893472] (-) TimerEvent: {}
+[15.993879] (-) TimerEvent: {}
+[16.056701] (segmentation_node) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/landing_circle.dir/build.make:76: CMakeFiles/landing_circle.dir/src/landing_circle.cpp.o] Error 1\n'}
+[16.057211] (segmentation_node) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:249: CMakeFiles/landing_circle.dir/all] Error 2\n'}
+[16.057626] (segmentation_node) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[16.062494] (segmentation_node) CommandEnded: {'returncode': 2}
+[16.081028] (segmentation_node) JobEnded: {'identifier': 'segmentation_node', 'rc': 2}
+[16.093092] (-) EventReactorShutdown: {}

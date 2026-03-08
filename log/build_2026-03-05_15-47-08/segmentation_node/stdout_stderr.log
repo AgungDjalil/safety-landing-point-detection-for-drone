@@ -1,0 +1,14 @@
+[35m[1mConsolidate compiler generated dependencies of target plane_segmentation_ransac[0m
+[ 16%] Built target cloud_size_node
+[ 50%] Built target plane_segmentation_gng
+[ 50%] Built target cylinder_crop
+[ 66%] Built target ddgng_node
+[ 83%] Built target landing_circle
+[ 91%] [32mBuilding CXX object CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o[0m
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:12:10:[m[K [01;31m[Kfatal error: [m[Kpcl/gpu/features/features.hpp: No such file or directory
+   12 | #include [01;31m[K<pcl/gpu/features/features.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/plane_segmentation_ransac.dir/build.make:76: CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:199: CMakeFiles/plane_segmentation_ransac.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,7 @@
+[35m[1mConsolidate compiler generated dependencies of target plane_segmentation_ransac[0m
+[ 16%] Built target cloud_size_node
+[ 50%] Built target plane_segmentation_gng
+[ 50%] Built target cylinder_crop
+[ 66%] Built target ddgng_node
+[ 83%] Built target landing_circle
+[ 91%] [32mBuilding CXX object CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o[0m

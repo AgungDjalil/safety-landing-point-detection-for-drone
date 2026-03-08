@@ -1,0 +1,10 @@
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/uninstall.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/offboard_control_uninstall.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/drone_kinematic.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/test.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/edit_cache.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/rebuild_cache.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/list_install_components.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/install.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/install/local.dir
+/home/mobi/Projects/drone-vajraakhasa/build/offboard_control/CMakeFiles/install/strip.dir

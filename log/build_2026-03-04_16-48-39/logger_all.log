@@ -1,0 +1,344 @@
+[0.102s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.102s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x75cd040512a0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x75cd03fcae00>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x75cd03fcae00>>, mixin_verb=('build',))
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.134s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/mobi/Projects/drone-vajraakhasa'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extensions ['ignore', 'ignore_ament_install']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extension 'ignore'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extension 'ignore_ament_install'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extensions ['colcon_pkg']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extension 'colcon_pkg'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extensions ['colcon_meta']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extension 'colcon_meta'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extensions ['ros']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/gng_node) by extension 'ros'
+[0.154s] DEBUG:colcon.colcon_core.package_identification:Package 'src/gng_node' with type 'ros.ament_python' and name 'gng_node'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extensions ['ignore', 'ignore_ament_install']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'ignore'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'ignore_ament_install'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extensions ['colcon_pkg']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'colcon_pkg'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extensions ['colcon_meta']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'colcon_meta'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extensions ['ros']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/offboard_control) by extension 'ros'
+[0.156s] DEBUG:colcon.colcon_core.package_identification:Package 'src/offboard_control' with type 'ros.ament_cmake' and name 'offboard_control'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ignore'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ignore_ament_install'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['colcon_pkg']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'colcon_pkg'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['colcon_meta']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'colcon_meta'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['ros']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ros'
+[0.157s] DEBUG:colcon.colcon_core.package_identification:Package 'src/px4_msgs' with type 'ros.ament_cmake' and name 'px4_msgs'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extensions ['ignore', 'ignore_ament_install']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extension 'ignore'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extension 'ignore_ament_install'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extensions ['colcon_pkg']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extension 'colcon_pkg'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extensions ['colcon_meta']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extension 'colcon_meta'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extensions ['ros']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/segmentation_node) by extension 'ros'
+[0.158s] DEBUG:colcon.colcon_core.package_identification:Package 'src/segmentation_node' with type 'ros.ament_cmake' and name 'segmentation_node'
+[0.158s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.158s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.158s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.158s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.158s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.182s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/mobi/Projects/drone-vajraakhasa/install
+[0.182s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/mobi/Zedcam_ws/install
+[0.183s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 389 installed packages in /opt/ros/humble
+[0.185s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'cmake_args' from command line to 'None'
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'cmake_target' from command line to 'None'
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'cmake_clean_cache' from command line to 'False'
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'cmake_clean_first' from command line to 'False'
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'cmake_force_configure' from command line to 'False'
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'ament_cmake_args' from command line to 'None'
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'catkin_cmake_args' from command line to 'None'
+[0.221s] Level 5:colcon.colcon_core.verb:set package 'gng_node' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.221s] DEBUG:colcon.colcon_core.verb:Building package 'gng_node' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mobi/Projects/drone-vajraakhasa/build/gng_node', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mobi/Projects/drone-vajraakhasa/install/gng_node', 'merge_install': False, 'path': '/home/mobi/Projects/drone-vajraakhasa/src/gng_node', 'symlink_install': False, 'test_result_base': None}
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_target' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.222s] DEBUG:colcon.colcon_core.verb:Building package 'px4_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mobi/Projects/drone-vajraakhasa/build/px4_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs', 'merge_install': False, 'path': '/home/mobi/Projects/drone-vajraakhasa/src/px4_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'cmake_target' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'cmake_clean_cache' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'cmake_clean_first' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'cmake_force_configure' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'ament_cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'catkin_cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'segmentation_node' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.222s] DEBUG:colcon.colcon_core.verb:Building package 'segmentation_node' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node', 'merge_install': False, 'path': '/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node', 'symlink_install': False, 'test_result_base': None}
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_target' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.222s] Level 5:colcon.colcon_core.verb:set package 'offboard_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.222s] DEBUG:colcon.colcon_core.verb:Building package 'offboard_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control', 'merge_install': False, 'path': '/home/mobi/Projects/drone-vajraakhasa/src/offboard_control', 'symlink_install': False, 'test_result_base': None}
+[0.223s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.224s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.224s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mobi/Projects/drone-vajraakhasa/src/px4_msgs' with build type 'ament_cmake'
+[0.225s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mobi/Projects/drone-vajraakhasa/src/px4_msgs'
+[0.228s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.228s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.228s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.233s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/mobi/Projects/drone-vajraakhasa/src/gng_node' with build type 'ament_python'
+[0.233s] Level 1:colcon.colcon_core.shell:create_environment_hook('gng_node', 'ament_prefix_path')
+[0.234s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/hook/ament_prefix_path.ps1'
+[0.234s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/hook/ament_prefix_path.dsv'
+[0.235s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/hook/ament_prefix_path.sh'
+[0.236s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.236s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.239s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node' with build type 'ament_cmake'
+[0.239s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node'
+[0.240s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.240s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.248s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/px4_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/px4_msgs -- -j16 -l16
+[0.443s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/mobi/Projects/drone-vajraakhasa/src/gng_node'
+[0.443s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.443s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.455s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node -- -j16 -l16
+[0.537s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node -- -j16 -l16
+[0.548s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node
+[0.558s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(segmentation_node)
+[0.559s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node
+[0.561s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node' for CMake module files
+[0.562s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node' for CMake config files
+[0.562s] Level 1:colcon.colcon_core.shell:create_environment_hook('segmentation_node', 'cmake_prefix_path')
+[0.562s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/hook/cmake_prefix_path.ps1'
+[0.562s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/hook/cmake_prefix_path.dsv'
+[0.563s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/hook/cmake_prefix_path.sh'
+[0.563s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib'
+[0.563s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/bin'
+[0.563s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/pkgconfig/segmentation_node.pc'
+[0.564s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/python3.10/site-packages'
+[0.564s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/bin'
+[0.564s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.ps1'
+[0.565s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.dsv'
+[0.565s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.sh'
+[0.566s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.bash'
+[0.567s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.zsh'
+[0.567s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/colcon-core/packages/segmentation_node)
+[0.585s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(segmentation_node)
+[0.586s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node' for CMake module files
+[0.586s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node' for CMake config files
+[0.586s] Level 1:colcon.colcon_core.shell:create_environment_hook('segmentation_node', 'cmake_prefix_path')
+[0.586s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/hook/cmake_prefix_path.ps1'
+[0.587s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/hook/cmake_prefix_path.dsv'
+[0.587s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/hook/cmake_prefix_path.sh'
+[0.588s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib'
+[0.588s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/bin'
+[0.588s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/pkgconfig/segmentation_node.pc'
+[0.588s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/python3.10/site-packages'
+[0.588s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/bin'
+[0.589s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.ps1'
+[0.590s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.dsv'
+[0.590s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.sh'
+[0.591s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.bash'
+[0.591s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.zsh'
+[0.592s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/colcon-core/packages/segmentation_node)
+[1.116s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/px4_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/px4_msgs -- -j16 -l16
+[1.118s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/px4_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/px4_msgs
+[1.419s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mobi/Projects/drone-vajraakhasa/src/gng_node': PYTHONPATH=/home/mobi/Projects/drone-vajraakhasa/build/gng_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gng_node build --build-base /home/mobi/Projects/drone-vajraakhasa/build/gng_node/build install --record /home/mobi/Projects/drone-vajraakhasa/build/gng_node/install.log --single-version-externally-managed install_data
+[1.549s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_msgs)
+[1.549s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs' for CMake module files
+[1.550s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/px4_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/px4_msgs
+[1.550s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs' for CMake config files
+[1.551s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'cmake_prefix_path')
+[1.551s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.ps1'
+[1.552s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.dsv'
+[1.552s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.sh'
+[1.553s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/lib'
+[1.553s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'ld_library_path_lib')
+[1.553s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.ps1'
+[1.554s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.dsv'
+[1.554s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.sh'
+[1.554s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/bin'
+[1.555s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/lib/pkgconfig/px4_msgs.pc'
+[1.555s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/lib/python3.10/site-packages'
+[1.555s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/bin'
+[1.555s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.ps1'
+[1.556s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.dsv'
+[1.556s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.sh'
+[1.557s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.bash'
+[1.557s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.zsh'
+[1.557s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/colcon-core/packages/px4_msgs)
+[1.558s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_msgs)
+[1.558s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs' for CMake module files
+[1.558s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs' for CMake config files
+[1.559s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'cmake_prefix_path')
+[1.559s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.ps1'
+[1.576s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.dsv'
+[1.577s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.sh'
+[1.578s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/lib'
+[1.578s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'ld_library_path_lib')
+[1.578s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.ps1'
+[1.579s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.dsv'
+[1.579s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.sh'
+[1.580s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/bin'
+[1.580s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/lib/pkgconfig/px4_msgs.pc'
+[1.580s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/lib/python3.10/site-packages'
+[1.580s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/bin'
+[1.580s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.ps1'
+[1.581s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.dsv'
+[1.581s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.sh'
+[1.582s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.bash'
+[1.582s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/package.zsh'
+[1.582s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/colcon-core/packages/px4_msgs)
+[1.583s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mobi/Projects/drone-vajraakhasa/src/offboard_control' with build type 'ament_cmake'
+[1.583s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mobi/Projects/drone-vajraakhasa/src/offboard_control'
+[1.583s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.583s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.595s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/offboard_control -- -j16 -l16
+[1.675s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control' returned '0': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/offboard_control -- -j16 -l16
+[1.678s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/offboard_control
+[1.690s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(offboard_control)
+[1.690s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control' for CMake module files
+[1.691s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control' returned '0': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/offboard_control
+[1.691s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control' for CMake config files
+[1.691s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'cmake_prefix_path')
+[1.692s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.ps1'
+[1.692s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.dsv'
+[1.692s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.sh'
+[1.693s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib'
+[1.693s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/bin'
+[1.693s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'path')
+[1.693s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/path.ps1'
+[1.693s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/path.dsv'
+[1.694s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/path.sh'
+[1.694s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/pkgconfig/offboard_control.pc'
+[1.694s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/python3.10/site-packages'
+[1.694s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/bin'
+[1.694s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'pythonscriptspath')
+[1.695s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/pythonscriptspath.ps1'
+[1.695s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/pythonscriptspath.dsv'
+[1.695s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/pythonscriptspath.sh'
+[1.696s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.ps1'
+[1.696s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.dsv'
+[1.697s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.sh'
+[1.697s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.bash'
+[1.697s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.zsh'
+[1.698s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/colcon-core/packages/offboard_control)
+[1.698s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(offboard_control)
+[1.698s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control' for CMake module files
+[1.699s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control' for CMake config files
+[1.699s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'cmake_prefix_path')
+[1.699s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.ps1'
+[1.700s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.dsv'
+[1.700s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/cmake_prefix_path.sh'
+[1.700s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib'
+[1.701s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/bin'
+[1.701s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'path')
+[1.701s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/path.ps1'
+[1.702s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/path.dsv'
+[1.702s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/path.sh'
+[1.702s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/pkgconfig/offboard_control.pc'
+[1.702s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/python3.10/site-packages'
+[1.703s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/bin'
+[1.703s] Level 1:colcon.colcon_core.shell:create_environment_hook('offboard_control', 'pythonscriptspath')
+[1.703s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/pythonscriptspath.ps1'
+[1.703s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/pythonscriptspath.dsv'
+[1.704s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/hook/pythonscriptspath.sh'
+[1.704s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.ps1'
+[1.705s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.dsv'
+[1.705s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.sh'
+[1.706s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.bash'
+[1.706s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.zsh'
+[1.706s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/colcon-core/packages/offboard_control)
+[1.862s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/gng_node' for CMake module files
+[1.863s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mobi/Projects/drone-vajraakhasa/src/gng_node' returned '0': PYTHONPATH=/home/mobi/Projects/drone-vajraakhasa/build/gng_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gng_node build --build-base /home/mobi/Projects/drone-vajraakhasa/build/gng_node/build install --record /home/mobi/Projects/drone-vajraakhasa/build/gng_node/install.log --single-version-externally-managed install_data
+[1.863s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/gng_node' for CMake config files
+[1.864s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib'
+[1.864s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/bin'
+[1.864s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/pkgconfig/gng_node.pc'
+[1.864s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/lib/python3.10/site-packages'
+[1.864s] Level 1:colcon.colcon_core.shell:create_environment_hook('gng_node', 'pythonpath')
+[1.864s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/hook/pythonpath.ps1'
+[1.865s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/hook/pythonpath.dsv'
+[1.865s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/hook/pythonpath.sh'
+[1.866s] Level 1:colcon.colcon_core.environment:checking '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/bin'
+[1.866s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gng_node)
+[1.866s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/package.ps1'
+[1.867s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/package.dsv'
+[1.867s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/package.sh'
+[1.867s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/package.bash'
+[1.868s] INFO:colcon.colcon_core.shell:Creating package script '/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/gng_node/package.zsh'
+[1.868s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mobi/Projects/drone-vajraakhasa/install/gng_node/share/colcon-core/packages/gng_node)
+[1.868s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.868s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.868s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.869s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.874s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.874s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.874s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.897s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.898s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mobi/Projects/drone-vajraakhasa/install/local_setup.ps1'
+[1.899s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/mobi/Projects/drone-vajraakhasa/install/_local_setup_util_ps1.py'
+[1.901s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mobi/Projects/drone-vajraakhasa/install/setup.ps1'
+[1.902s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mobi/Projects/drone-vajraakhasa/install/local_setup.sh'
+[1.903s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/mobi/Projects/drone-vajraakhasa/install/_local_setup_util_sh.py'
+[1.903s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mobi/Projects/drone-vajraakhasa/install/setup.sh'
+[1.904s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mobi/Projects/drone-vajraakhasa/install/local_setup.bash'
+[1.905s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mobi/Projects/drone-vajraakhasa/install/setup.bash'
+[1.906s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mobi/Projects/drone-vajraakhasa/install/local_setup.zsh'
+[1.906s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mobi/Projects/drone-vajraakhasa/install/setup.zsh'

@@ -1,0 +1,26 @@
+[0.165s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node -- -j16 -l16
+[0.204s] [35m[1mConsolidate compiler generated dependencies of target plane_segmentation_ransac[0m
+[0.219s] [ 75%] Built target landing_circle
+[0.219s] [ 75%] Built target ddgng_node
+[0.219s] [ 75%] Built target cloud_size_node
+[0.219s] [ 75%] Built target cylinder_crop
+[0.219s] [ 83%] Built target plane_segmentation_gng
+[0.230s] [ 91%] [32mBuilding CXX object CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o[0m
+[5.289s] [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:[m[K In member function ‘[01m[Ksize_t PlaneSegmentationRansac::countValidPoints(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)[m[K’:
+[5.289s] [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:72:20:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdata_size[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[5.289s]    72 |             size_t [01;35m[Kdata_size[m[K = msg->width * msg->height;
+[5.290s]       |                    [01;35m[K^~~~~~~~~[m[K
+[5.302s] [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:[m[K In member function ‘[01m[Kvoid PlaneSegmentationRansac::callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)[m[K’:
+[5.302s] [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:166:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass pcl::VoxelGrid<pcl::PointXYZ>[m[K’ has no member named ‘[01m[KsetDownsamplingMethod[m[K’
+[5.302s]   166 |                 voxel_filter.[01;31m[KsetDownsamplingMethod[m[K(pcl::VoxelGrid<pcl::PointXYZ>::CENTROID);
+[5.302s]       |                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[5.303s] [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:166:83:[m[K [01;31m[Kerror: [m[K‘[01m[KCENTROID[m[K’ is not a member of ‘[01m[Kpcl::VoxelGrid<pcl::PointXYZ>[m[K’
+[5.303s]   166 |                 voxel_filter.setDownsamplingMethod(pcl::VoxelGrid<pcl::PointXYZ>::[01;31m[KCENTROID[m[K);
+[5.303s]       |                                                                                   [01;31m[K^~~~~~~~[m[K
+[5.322s] [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:184:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal>[m[K’ has no member named ‘[01m[KsetNumberOfThreads[m[K’
+[5.323s]   184 |                 ne.[01;31m[KsetNumberOfThreads[m[K(std::thread::hardware_concurrency());  // Use all cores
+[5.323s]       |                    [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[9.307s] gmake[2]: *** [CMakeFiles/plane_segmentation_ransac.dir/build.make:76: CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o] Error 1
+[9.307s] gmake[1]: *** [CMakeFiles/Makefile2:199: CMakeFiles/plane_segmentation_ransac.dir/all] Error 2
+[9.307s] gmake: *** [Makefile:146: all] Error 2
+[9.310s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node -- -j16 -l16

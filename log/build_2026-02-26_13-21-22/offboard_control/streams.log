@@ -1,0 +1,79 @@
+[0.012s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake /home/mobi/Projects/drone-vajraakhasa/src/offboard_control -DCMAKE_INSTALL_PREFIX=/home/mobi/Projects/drone-vajraakhasa/install/offboard_control
+[0.086s] -- The C compiler identification is GNU 11.4.0
+[0.163s] -- The CXX compiler identification is GNU 11.4.0
+[0.173s] -- Detecting C compiler ABI info
+[0.261s] -- Detecting C compiler ABI info - done
+[0.270s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.270s] -- Detecting C compile features
+[0.271s] -- Detecting C compile features - done
+[0.276s] -- Detecting CXX compiler ABI info
+[0.383s] -- Detecting CXX compiler ABI info - done
+[0.392s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.392s] -- Detecting CXX compile features
+[0.393s] -- Detecting CXX compile features - done
+[0.396s] -- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.916s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.075s] -- Found rclcpp: 16.0.18 (/opt/ros/humble/share/rclcpp/cmake)
+[1.141s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.151s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.162s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.177s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.201s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.303s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.307s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.435s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.479s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.534s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.549s] -- Looking for pthread.h
+[1.641s] -- Looking for pthread.h - found
+[1.642s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.740s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.741s] -- Found Threads: TRUE  
+[1.818s] -- Found px4_msgs: 2.0.1 (/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs/share/px4_msgs/cmake)
+[1.835s] -- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.855s] -- Found tf2_ros: 0.25.19 (/opt/ros/humble/share/tf2_ros/cmake)
+[2.007s] -- Found std_srvs: 4.9.1 (/opt/ros/humble/share/std_srvs/cmake)
+[2.022s] -- Found tf2_geometry_msgs: 0.25.19 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[2.046s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.047s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.048s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.055s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.171s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.172s] -- Configured cppcheck include dirs: 
+[2.172s] -- Configured cppcheck exclude dirs and/or files: 
+[2.172s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.173s] -- Added test 'lint_cmake' to check CMake code style
+[2.174s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.176s] -- Added test 'uncrustify' to check C / C++ code style
+[2.176s] -- Configured uncrustify additional arguments: 
+[2.177s] -- Added test 'xmllint' to check XML markup files
+[2.179s] -- Configuring done
+[2.194s] -- Generating done
+[2.200s] -- Build files have been written to: /home/mobi/Projects/drone-vajraakhasa/build/offboard_control
+[2.220s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control' returned '0': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake /home/mobi/Projects/drone-vajraakhasa/src/offboard_control -DCMAKE_INSTALL_PREFIX=/home/mobi/Projects/drone-vajraakhasa/install/offboard_control
+[2.222s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/offboard_control -- -j16 -l16
+[2.296s] [ 50%] [32mBuilding CXX object CMakeFiles/drone_kinematic.dir/src/drone_kinematic.cpp.o[0m
+[14.265s] [100%] [32m[1mLinking CXX executable drone_kinematic[0m
+[14.972s] [100%] Built target drone_kinematic
+[15.006s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control' returned '0': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/offboard_control -- -j16 -l16
+[15.007s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/offboard_control
+[15.019s] -- Install configuration: ""
+[15.019s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/bin/drone_kinematic
+[15.024s] -- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/offboard_control/bin/drone_kinematic" to ""
+[15.024s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/lib/offboard_control/keyboard_control.py
+[15.024s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/package_run_dependencies/offboard_control
+[15.025s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/parent_prefix_path/offboard_control
+[15.025s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/ament_prefix_path.sh
+[15.025s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/ament_prefix_path.dsv
+[15.025s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/path.sh
+[15.025s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/environment/path.dsv
+[15.025s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.bash
+[15.026s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.sh
+[15.026s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.zsh
+[15.026s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/local_setup.dsv
+[15.026s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.dsv
+[15.026s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/ament_index/resource_index/packages/offboard_control
+[15.026s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/cmake/offboard_controlConfig.cmake
+[15.026s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/cmake/offboard_controlConfig-version.cmake
+[15.027s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/offboard_control/share/offboard_control/package.xml
+[15.030s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/offboard_control' returned '0': CMAKE_PREFIX_PATH=/home/mobi/Projects/drone-vajraakhasa/install/px4_msgs:/home/mobi/Projects/drone-vajraakhasa/install/offboard_control:/home/mobi/Zedcam_ws/install/zed_ros2:/home/mobi/Zedcam_ws/install/zed_wrapper:/home/mobi/Zedcam_ws/install/zed_components:/home/mobi/Zedcam_ws/install/ddgng_topology:/home/mobi/Projects/drone-vajraakhasa/install/gng_node:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/offboard_control

@@ -1,0 +1,152 @@
+[0.224s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/mobi/Projects/drone-vajraakhasa/src/segmentation_node -DCMAKE_INSTALL_PREFIX=/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node
+[0.318s] -- The C compiler identification is GNU 11.4.0
+[0.395s] -- The CXX compiler identification is GNU 11.4.0
+[0.406s] -- Detecting C compiler ABI info
+[0.490s] -- Detecting C compiler ABI info - done
+[0.499s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.500s] -- Detecting C compile features
+[0.500s] -- Detecting C compile features - done
+[0.505s] -- Detecting CXX compiler ABI info
+[0.614s] -- Detecting CXX compiler ABI info - done
+[0.621s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.621s] -- Detecting CXX compile features
+[0.622s] -- Detecting CXX compile features - done
+[0.624s] -- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.179s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.296s] -- Found rclcpp: 16.0.18 (/opt/ros/humble/share/rclcpp/cmake)
+[1.308s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.310s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.313s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.318s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.321s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.366s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.371s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.496s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.535s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.595s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.605s] -- Looking for pthread.h
+[1.687s] -- Looking for pthread.h - found
+[1.687s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.776s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.778s] -- Found Threads: TRUE  
+[1.850s] -- Found sensor_msgs: 4.9.1 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.891s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[1.938s] -- Checking for module 'eigen3'
+[1.956s] --   Found eigen3, version 3.4.0
+[1.993s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[1.993s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[2.033s] -- Checking for module 'flann'
+[2.047s] --   Found flann, version 1.9.1
+[2.098s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[2.098s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[3.143s] -- Checking for module 'libusb-1.0'
+[3.158s] --   Found libusb-1.0, version 1.0.25
+[3.205s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[3.206s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.271s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.423s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[3.432s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.441s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.617s] -- Found Qhull version 8.0.2
+[3.768s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.916s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[3.948s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[3.949s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[3.950s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[3.950s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[3.951s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[3.951s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[3.952s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[3.952s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[3.953s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[3.954s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[3.955s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[3.956s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[3.957s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[3.957s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[3.958s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[3.959s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[3.960s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[3.961s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[3.962s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[3.962s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[3.962s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[3.963s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[3.964s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[3.965s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[3.979s] -- Found tf2: 0.25.19 (/opt/ros/humble/share/tf2/cmake)
+[3.996s] -- Found tf2_ros: 0.25.19 (/opt/ros/humble/share/tf2_ros/cmake)
+[4.086s] -- Found tf2_eigen: 0.25.19 (/opt/ros/humble/share/tf2_eigen/cmake)
+[4.098s] -- Found visualization_msgs: 4.9.1 (/opt/ros/humble/share/visualization_msgs/cmake)
+[4.372s] -- Found OpenMP_C: -fopenmp (found version "4.5") 
+[4.466s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[4.466s] -- Found OpenMP: TRUE (found version "4.5")  
+[4.501s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[4.595s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.596s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/include>
+[4.596s] -- Configured cppcheck exclude dirs and/or files: 
+[4.597s] -- Added test 'flake8' to check Python code syntax and style conventions
+[4.597s] -- Added test 'lint_cmake' to check CMake code style
+[4.598s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[4.599s] -- Added test 'uncrustify' to check C / C++ code style
+[4.599s] -- Configured uncrustify additional arguments: 
+[4.599s] -- Added test 'xmllint' to check XML markup files
+[4.600s] -- Configuring done
+[4.735s] -- Generating done
+[4.768s] -- Build files have been written to: /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node
+[4.804s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/mobi/Projects/drone-vajraakhasa/src/segmentation_node -DCMAKE_INSTALL_PREFIX=/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node
+[4.806s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node -- -j16 -l16
+[4.868s] [ 50%] [32mBuilding CXX object CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o[0m
+[4.868s] [ 50%] [32mBuilding CXX object CMakeFiles/landing_circle.dir/src/landing_circle.cpp.o[0m
+[4.868s] [ 50%] [32mBuilding CXX object CMakeFiles/ddgng_node.dir/src/ddgng_node.cpp.o[0m
+[4.868s] [ 50%] [32mBuilding CXX object CMakeFiles/plane_segmentation_gng.dir/src/plane_segmentation_gng.cpp.o[0m
+[4.868s] [ 50%] [32mBuilding CXX object CMakeFiles/cylinder_crop.dir/src/cylinder_crop.cpp.o[0m
+[6.658s] [01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/cylinder_crop.cpp:95:[m[K [01;35m[Kwarning: [m[Kignoring ‘[01m[K#pragma omp parallel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunknown-pragmas-Wunknown-pragmas]8;;[m[K]
+[6.658s]    95 |       #pragma omp parallel for
+[6.658s]       | 
+[20.066s] [ 60%] [32m[1mLinking CXX executable cylinder_crop[0m
+[21.480s] [ 60%] Built target cylinder_crop
+[22.013s] [ 70%] [32m[1mLinking CXX executable plane_segmentation_ransac[0m
+[22.094s] [ 80%] [32m[1mLinking CXX executable landing_circle[0m
+[23.288s] [ 80%] Built target landing_circle
+[24.902s] [ 90%] [32m[1mLinking CXX executable plane_segmentation_gng[0m
+[25.281s] [ 90%] Built target plane_segmentation_ransac
+[25.484s] [100%] [32m[1mLinking CXX executable ddgng_node[0m
+[28.588s] [100%] Built target plane_segmentation_gng
+[29.067s] [100%] Built target ddgng_node
+[29.104s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node -- -j16 -l16
+[29.106s] Invoking command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node
+[29.113s] -- Install configuration: ""
+[29.113s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/landing_circle
+[29.117s] -- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/landing_circle" to ""
+[29.117s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/cylinder_crop
+[29.119s] -- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/cylinder_crop" to ""
+[29.119s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_gng
+[29.123s] -- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_gng" to ""
+[29.123s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_ransac
+[29.127s] -- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/plane_segmentation_ransac" to ""
+[29.127s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/ddgng_node
+[29.133s] -- Set runtime path of "/home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/lib/segmentation_node/ddgng_node" to ""
+[29.133s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include
+[29.133s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node
+[29.133s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/plane_segmentation_gng.hpp
+[29.133s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/landing_circle.hpp
+[29.133s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/include/segmentation_node/ddgng.hpp
+[29.133s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/publish_safety_point.launch.py
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/package_run_dependencies/segmentation_node
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/parent_prefix_path/segmentation_node
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/ament_prefix_path.sh
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/ament_prefix_path.dsv
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/path.sh
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/environment/path.dsv
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.bash
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.sh
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.zsh
+[29.134s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/local_setup.dsv
+[29.135s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.dsv
+[29.135s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/ament_index/resource_index/packages/segmentation_node
+[29.135s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/cmake/segmentation_nodeConfig.cmake
+[29.135s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/cmake/segmentation_nodeConfig-version.cmake
+[29.135s] -- Installing: /home/mobi/Projects/drone-vajraakhasa/install/segmentation_node/share/segmentation_node/package.xml
+[29.139s] Invoked command in '/home/mobi/Projects/drone-vajraakhasa/build/segmentation_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/mobi/Projects/drone-vajraakhasa/build/segmentation_node

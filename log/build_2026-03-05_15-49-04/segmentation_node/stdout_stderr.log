@@ -1,0 +1,23 @@
+[ 16%] Built target cloud_size_node
+[ 91%] [32mBuilding CXX object CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o[0m
+[ 91%] Built target cylinder_crop
+[ 91%] Built target ddgng_node
+[ 91%] Built target landing_circle
+[ 91%] Built target plane_segmentation_gng
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:[m[K In member function ‘[01m[Ksize_t PlaneSegmentationRansac::countValidPoints(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:72:20:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdata_size[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   72 |             size_t [01;35m[Kdata_size[m[K = msg->width * msg->height;
+      |                    [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:[m[K In member function ‘[01m[Kvoid PlaneSegmentationRansac::callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:166:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass pcl::VoxelGrid<pcl::PointXYZ>[m[K’ has no member named ‘[01m[KsetDownsamplingMethod[m[K’
+  166 |                 voxel_filter.[01;31m[KsetDownsamplingMethod[m[K(pcl::VoxelGrid<pcl::PointXYZ>::CENTROID);
+      |                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:166:83:[m[K [01;31m[Kerror: [m[K‘[01m[KCENTROID[m[K’ is not a member of ‘[01m[Kpcl::VoxelGrid<pcl::PointXYZ>[m[K’
+  166 |                 voxel_filter.setDownsamplingMethod(pcl::VoxelGrid<pcl::PointXYZ>::[01;31m[KCENTROID[m[K);
+      |                                                                                   [01;31m[K^~~~~~~~[m[K
+[01m[K/home/mobi/Projects/drone-vajraakhasa/src/segmentation_node/src/plane_segmentation_ransac.cpp:184:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal>[m[K’ has no member named ‘[01m[KsetNumberOfThreads[m[K’
+  184 |                 ne.[01;31m[KsetNumberOfThreads[m[K(std::thread::hardware_concurrency());  // Use all cores
+      |                    [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/plane_segmentation_ransac.dir/build.make:76: CMakeFiles/plane_segmentation_ransac.dir/src/plane_segmentation_ransac.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:199: CMakeFiles/plane_segmentation_ransac.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
