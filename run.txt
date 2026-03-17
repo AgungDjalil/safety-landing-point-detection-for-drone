@@ -1,7 +1,0 @@
-ros2 run ros_gz_bridge parameter_bridge /camera_info@sensor_msgs/msg/CameraInfo@ignition.msgs.CameraInfo /depth_camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image@sensor_msgs/msg/Image[gz.msgs.Image /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock
-
-ros2 param set /drone_kinematics use_sim_time true
-
-MicroXRCEAgent udp4 -p 8888
-
-PX4_GZ_WORLD=baylands make px4_sitl gz_x500_depth

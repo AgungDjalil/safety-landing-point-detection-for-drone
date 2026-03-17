@@ -1,0 +1,183 @@
+# =============================================================================
+# .gitignore for ROS2 Humble Project
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# ROS2 Build & Install Directories
+# -----------------------------------------------------------------------------
+build/
+install/
+log/
+*.egg-info/
+
+# -----------------------------------------------------------------------------
+# ROS2 Log & Bag Files
+# -----------------------------------------------------------------------------
+~ros/
+ros2_bag_*/
+*.db3
+*.mcap
+*.yaml.bak
+rosbag2_*/
+
+# -----------------------------------------------------------------------------
+# Colcon
+# -----------------------------------------------------------------------------
+.colcon_install_layout
+colcon_build/
+colcon.meta.bak
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.so
+dist/
+*.egg
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# -----------------------------------------------------------------------------
+# CMake & C++
+# -----------------------------------------------------------------------------
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+Makefile
+*.cmake
+!*Config.cmake
+!*ConfigVersion.cmake
+*.make
+*.marks
+*.autosave
+compile_commands.json
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.out
+*.app
+*.i*86
+*.x86_64
+
+# -----------------------------------------------------------------------------
+# Gazebo / Ignition
+# -----------------------------------------------------------------------------
+.gazebo/
+~/.gazebo/
+*.world.bak
+gz_*.log
+gzserver_*.log
+gzclient_*.log
+
+# -----------------------------------------------------------------------------
+# PX4
+# -----------------------------------------------------------------------------
+*.px4log
+*.ulog
+*.ulg
+*.param.bak
+rc.autostart.bak
+
+# -----------------------------------------------------------------------------
+# IDE & Editor
+# -----------------------------------------------------------------------------
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# CLion / JetBrains
+.idea/
+*.iml
+*.iws
+cmake-build-*/
+
+# Eclipse
+.project
+.cproject
+.settings/
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.netrwhist
+Session.vim
+
+# Emacs
+\#*\#
+.\#*
+*.elc
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# -----------------------------------------------------------------------------
+# OS Generated
+# -----------------------------------------------------------------------------
+# Linux
+.directory
+.Trash-*
+*.nfs*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# -----------------------------------------------------------------------------
+# Environment & Secrets
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.cert
+*.secret
+config/credentials.*
+
+# -----------------------------------------------------------------------------
+# Miscellaneous
+# -----------------------------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.patch
+*.diff
+*.log
+nohup.out
+core
+core.*
