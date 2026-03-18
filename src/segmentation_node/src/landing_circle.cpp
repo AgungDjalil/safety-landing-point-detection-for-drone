@@ -7,6 +7,8 @@
 //   5. computeMode uses sorted window for O(W log W) instead of O(W²)
 //   6. safety_tf_published_ can optionally re-lock if centroid drifts beyond relock_dist_m_
 //   7. disk_offsets_safe cached as member to avoid realloc every callback
+//   8. Unique landing circle counter: koordinat disimpan dalam odom_frame_ (map),
+//      lokasi yang sudah pernah ditemukan (dalam radius unique_circle_dist_m_) tidak dihitung ulang.
 
 #include "segmentation_node/landing_circle.hpp"
 
@@ -32,7 +34,7 @@ LandingCircle::LandingCircle() : Node("landing_circle")
 
   // ── Frame TF ─────────────────────────────────────────────────────────────
   plane_frame_  = declare_parameter<std::string>("plane_frame",  "camera_link");
-  odom_frame_   = declare_parameter<std::string>("odom_frame",   "odom");
+  odom_frame_   = declare_parameter<std::string>("odom_frame",   "map");
   safety_frame_ = declare_parameter<std::string>("safety_frame", "safety_point");
 
   // ── Proyeksi bidang ───────────────────────────────────────────────────────
@@ -49,13 +51,18 @@ LandingCircle::LandingCircle() : Node("landing_circle")
   inflate_cells_  = declare_parameter<int>("inflate_cells",      1);
 
   // ── Voting lintas-frame ───────────────────────────────────────────────────
-  vote_window_      = declare_parameter<int>("vote_window",        15);
+  vote_window_      = declare_parameter<int>("vote_window",        1);
   vote_tolerance_m_ = declare_parameter<double>("vote_tolerance_m", 0.20);
-  min_votes_to_fix_ = declare_parameter<int>("min_votes_to_fix",    8);
+  min_votes_to_fix_ = declare_parameter<int>("min_votes_to_fix",    1);
 
   // ── Re-lock jika centroid bergeser (opt-in) ───────────────────────────────
   // Set relock_dist_m > 0 agar safety_tf bisa di-reset kalau zona bergeser
   relock_dist_m_ = declare_parameter<double>("relock_dist_m", 0.0);
+
+  // ── Unique landing circle dedup ───────────────────────────────────────────
+  // Dua landing circle dianggap SAMA jika jaraknya (dalam odom_frame_) < nilai ini.
+  // Koordinat selalu disimpan dalam odom_frame_ (referensi map global).
+  unique_circle_dist_m_ = declare_parameter<double>("unique_circle_dist_m", 0.5);
 
   // ── TF ────────────────────────────────────────────────────────────────────
   tf_buffer_   = std::make_unique<tf2_ros::Buffer>(get_clock());
@@ -76,11 +83,11 @@ LandingCircle::LandingCircle() : Node("landing_circle")
   RCLCPP_INFO(get_logger(),
     "LandingCircle: plane_frame=%s axes=%s safe_d=%.2fm grid=%.2fm fill>=%.2f "
     "pts/cell>=%d inflate=%d votes(window=%d tol=%.2fm min=%d) relock=%.2fm "
-    "-> TF '%s' in '%s'",
+    "unique_dist=%.2fm -> TF '%s' in '%s'",
     plane_frame_.c_str(), plane_axes_.c_str(), safe_diameter_, grid_cell_,
     fill_ratio_req_, min_pts_cell_, inflate_cells_,
     vote_window_, vote_tolerance_m_, min_votes_to_fix_,
-    relock_dist_m_,
+    relock_dist_m_, unique_circle_dist_m_,
     safety_frame_.c_str(), odom_frame_.c_str());
 }
 
@@ -192,7 +199,7 @@ void LandingCircle::cbCloud(const sensor_msgs::msg::PointCloud2::ConstSharedPtr 
   }
 
   // ── 7) Disk offsets — cached sebagai member, rebuild hanya jika param berubah
-  //      [OPT-7] Hindari realloc setiap callback                              
+  //      [OPT-7] Hindari realloc setiap callback
   const int R_safe_cells =
     std::max(1, static_cast<int>(std::round(r_safe / cell)));
 
@@ -372,7 +379,8 @@ void LandingCircle::cbCloud(const sensor_msgs::msg::PointCloud2::ConstSharedPtr 
     }
   }
 
-  if (!safety_tf_published_ && mode_count >= min_votes_to_fix_) {
+  if (mode_count >= min_votes_to_fix_) {
+    // ── Konversi mode_center ke odom_frame_ (selalu, bukan hanya saat TF baru) ──
     std::array<float, 3> center_odom = mode_center;
     if (plane_frame_ != odom_frame_) {
       try {
@@ -391,18 +399,63 @@ void LandingCircle::cbCloud(const sensor_msgs::msg::PointCloud2::ConstSharedPtr 
         return;
       }
     }
-    publishStaticSafetyTF(center_odom);
-    locked_center_odom_ = center_odom;   // simpan untuk deteksi drift
-    safety_tf_published_ = true;
-    RCLCPP_INFO(get_logger(),
-      "Published static TF '%s' in '%s' at (%.3f, %.3f, %.3f)",
-      safety_frame_.c_str(), odom_frame_.c_str(),
-      center_odom[0], center_odom[1], center_odom[2]);
+
+    // ── [FIX] Registrasi unique circle SELALU dilakukan, tidak bergantung
+    //    pada safety_tf_published_. Setiap lokasi baru di odom_frame_ yang
+    //    belum pernah ditemukan (> unique_circle_dist_m_) akan dicatat. ──────
+    const bool is_new = tryRegisterNewLandingCircle(center_odom);
+    if (is_new) {
+      RCLCPP_INFO(get_logger(),
+        "NEW landing circle #%zu discovered at (%.3f, %.3f, %.3f) [%s]",
+        known_landing_circles_.size(),
+        center_odom[0], center_odom[1], center_odom[2],
+        odom_frame_.c_str());
+    } else {
+      RCLCPP_INFO_THROTTLE(get_logger(), *get_clock(), 2000,
+        "Landing circle already known (total unique: %zu)",
+        known_landing_circles_.size());
+    }
+
+    // ── Publish static TF hanya jika belum pernah di-publish untuk lokasi ini ──
+    if (!safety_tf_published_) {
+      publishStaticSafetyTF(center_odom);
+      locked_center_odom_ = center_odom;
+      safety_tf_published_ = true;
+      RCLCPP_INFO(get_logger(),
+        "Published static TF '%s' in '%s' at (%.3f, %.3f, %.3f)",
+        safety_frame_.c_str(), odom_frame_.c_str(),
+        center_odom[0], center_odom[1], center_odom[2]);
+    }
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// publishStats — identik formatnya ke plane_segmentation_ransac & gng_node
+// tryRegisterNewLandingCircle
+// Koordinat center_odom harus dalam odom_frame_ (frame map / global reference).
+// Return true  → lokasi baru, ditambahkan ke known_landing_circles_.
+// Return false → sudah pernah ditemukan (dalam radius unique_circle_dist_m_).
+// ─────────────────────────────────────────────────────────────────────────────
+bool LandingCircle::tryRegisterNewLandingCircle(const std::array<float, 3>& center_odom)
+{
+  const float thr2 = static_cast<float>(unique_circle_dist_m_) *
+                     static_cast<float>(unique_circle_dist_m_);
+
+  for (const auto& known : known_landing_circles_) {
+    const float dx = center_odom[0] - known[0];
+    const float dy = center_odom[1] - known[1];
+    const float dz = center_odom[2] - known[2];
+    if (dx*dx + dy*dy + dz*dz < thr2) {
+      return false;  // sudah ada yang sangat dekat — bukan lokasi baru
+    }
+  }
+
+  // Lokasi baru — simpan
+  known_landing_circles_.push_back(center_odom);
+  return true;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// publishStats — diperluas dengan info unique landing circles
 // ─────────────────────────────────────────────────────────────────────────────
 void LandingCircle::publishStats(
     const std::chrono::high_resolution_clock::time_point& t_start,
@@ -417,18 +470,34 @@ void LandingCircle::publishStats(
     ? (static_cast<double>(valid_pts) / static_cast<double>(total_pts) * 100.0)
     : 0.0;
 
+  const size_t unique_count = known_landing_circles_.size();
+
+  // Buat ringkasan koordinat semua landing circles yang sudah diketahui
+  std::string circles_summary;
+  for (size_t i = 0; i < unique_count; ++i) {
+    const auto& c = known_landing_circles_[i];
+    circles_summary +=
+      "  [" + std::to_string(i + 1) + "] "
+      "x=" + std::to_string(c[0]) + " "
+      "y=" + std::to_string(c[1]) + " "
+      "z=" + std::to_string(c[2]) +
+      " (" + odom_frame_ + ")\n";
+  }
+
   std_msgs::msg::String msg;
   msg.data =
-    "computation_time: " + std::to_string(comp_ms)   + " ms\n" +
-    "valid_points: "     + std::to_string(valid_pts)  + "\n"   +
-    "valid_percentage: " + std::to_string(valid_pct)  + " %\n" +
-    "plane_size: "       + std::to_string(safe_size)  + "\n"   +
-    "outlier_size: "     + std::to_string(total_pts - valid_pts);
+    "computation_time: "          + std::to_string(comp_ms)    + " ms\n" +
+    "valid_points: "              + std::to_string(valid_pts)   + "\n"   +
+    "valid_percentage: "          + std::to_string(valid_pct)   + " %\n" +
+    "plane_size: "                + std::to_string(safe_size)   + "\n"   +
+    "outlier_size: "              + std::to_string(total_pts - valid_pts) + "\n" +
+    "unique_landing_circles: "    + std::to_string(unique_count) + "\n"  +
+    "landing_circle_locations:\n" + circles_summary;
   pub_stats_->publish(msg);
 
   RCLCPP_INFO(get_logger(),
-    "Comp: %.2f ms | Valid: %zu / %zu (%.1f%%) | Safe: %zu",
-    comp_ms, valid_pts, total_pts, valid_pct, safe_size);
+    "Comp: %.2f ms | Valid: %zu / %zu (%.1f%%) | Safe: %zu | Unique LC: %zu",
+    comp_ms, valid_pts, total_pts, valid_pct, safe_size, unique_count);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

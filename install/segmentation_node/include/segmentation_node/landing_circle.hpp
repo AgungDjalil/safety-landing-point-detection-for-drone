@@ -72,6 +72,11 @@ private:
 
   void publishStaticSafetyTF(const std::array<float, 3>& p_odom);
 
+  // ── Unique landing circle tracking ───────────────────────────────────────
+  // Cek apakah koordinat (dalam frame odom/map) sudah pernah ditemukan.
+  // Mengembalikan true jika ini lokasi BARU dan berhasil ditambahkan.
+  bool tryRegisterNewLandingCircle(const std::array<float, 3>& center_odom);
+
   // ── Voting ────────────────────────────────────────────────────────────────
   void pushVote(const std::array<float, 3>& c);
   void computeMode(std::array<float, 3>& mode_center, int& mode_count);
@@ -104,6 +109,10 @@ private:
   int    min_votes_to_fix_;
   double relock_dist_m_;           // [OPT-6] parameter baru
 
+  // Jarak minimum (meter) agar dua landing circle dianggap BERBEDA lokasi.
+  // Koordinat disimpan dalam odom_frame_ (frame map / referensi global).
+  double unique_circle_dist_m_;
+
   // ── TF ────────────────────────────────────────────────────────────────────
   std::unique_ptr<tf2_ros::Buffer>                    tf_buffer_;
   std::shared_ptr<tf2_ros::TransformListener>         tf_listener_;
@@ -119,6 +128,11 @@ private:
   std::deque<std::array<float, 3>> votes_;
   bool                             safety_tf_published_ = false;
   std::array<float, 3>             locked_center_odom_  = {};  // [OPT-6]
+
+  // ── Daftar unique landing circles (koordinat dalam odom_frame_) ───────────
+  // Setiap entri adalah centroid yang sudah dikonfirmasi dan belum pernah
+  // ditemukan sebelumnya (berdasarkan unique_circle_dist_m_).
+  std::vector<std::array<float, 3>> known_landing_circles_;
 
   // ── Cache disk offsets — [OPT-7] rebuilt hanya saat R berubah ────────────
   std::vector<std::pair<int, int>> disk_offsets_safe_;

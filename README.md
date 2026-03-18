@@ -187,13 +187,13 @@ ros2 run landing_circle landing_circle
 #### Node Logger Data (Stats Logger)
 
 ```bash
-ros2 run segmentation_node stats_logger_node
+ros2 run logger_stats stats_logger_node
 ```
 
 Log CSV akan tersimpan secara otomatis di `~/ros2_logs/`. Untuk menentukan direktori output lain:
 
 ```bash
-ros2 run segmentation_node stats_logger_node --ros-args -p output_dir:=/path/to/output
+ros2 run logger_stats stats_logger_node --ros-args -p output_dir:=/path/to/output
 ```
 
 > Node ini menyimpan dua file CSV secara terpisah:
@@ -223,12 +223,12 @@ Menganalisis bidang datar hasil segmentasi dan mendeteksi area lingkaran yang cu
 ```
 Project/drone*/
 ├── src/
-│   ├── offboard_control/            # Node kendali penerbangan
-│   ├── gng_node/                    # Algoritma Growing Neural Gas
-│   ├── segmentation_node/           
-|   ├──── plane_segmentation_ransac  # Segmentasi bidang RANSAC
-│   └──── landing_circle/            # Deteksi zona landing
-├── install/                         # Hasil build ROS2
+│   ├── gng_node/                              # Algoritma Growing Neural Gas
+│   ├── logger_stats/                          # Node logger CSV
+│   ├── offboard_control/                      # Node kendali penerbangan
+│   ├── px4_msgs/                              # Definisi pesan PX4
+│   └── segmentation_node/                     # Pipeline persepsi
+├── install/                                   # Hasil build ROS2
 ├── build/
 └── log/
 ```
@@ -251,4 +251,4 @@ sleep 10 && make px4_sitl gz_x500_depth
 ```
 
 ### QGroundControl tidak terhubung ke PX4
-Pastikan PX4 SITL sudah berjalan dan MicroXRCE-DDS Agent aktif. QGroundControl mendengarkan di UDP port 14550 secara default — tidak perlu konfigurasi tambahan untuk koneksi lokal.# safety-landing-point-detection-for-drone
+Pastikan PX4 SITL sudah berjalan dan MicroXRCE-DDS Agent aktif. QGroundControl mendengarkan di UDP port 14550 secara default — tidak perlu konfigurasi tambahan untuk koneksi lokal.

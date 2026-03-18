@@ -18,7 +18,7 @@ class DBLGNGNode(Node):
 
         self.gng = DBL_GNG(
             feature_number=3,
-            max_nodes=800,
+            max_nodes=550,
             alpha=0.5,
             beta=0.03,
             delta=0.7,
@@ -50,7 +50,8 @@ class DBLGNGNode(Node):
 
         self.create_subscription(
             PointCloud2,
-            "/zed/zed_node/point_cloud/cloud_registered",
+            # "/zed/zed_node/point_cloud/cloud_registered",
+            "/depth_camera/points",
             self._pointcloud_callback,
             5,
         )
