@@ -207,14 +207,69 @@ ros2 run logger_stats stats_logger_node --ros-args -p output_dir:=/path/to/outpu
 ### `drone_kinematic`
 Node offboard control yang mengendalikan pergerakan drone secara kinematik. Mengirimkan setpoint posisi/kecepatan ke PX4 melalui protokol MAVLink via MicroXRCE-DDS.
 
+| Arah | Topic | Tipe |
+|------|-------|------|
+| Subscribe | `/fmu/out/vehicle_odometry` | `px4_msgs/VehicleOdometry` |
+| Subscribe | `/fmu/out/vehicle_status` | `px4_msgs/VehicleStatus` |
+| Publish | `/fmu/in/trajectory_setpoint` | `px4_msgs/TrajectorySetpoint` |
+| Publish | `/fmu/in/vehicle_command` | `px4_msgs/VehicleCommand` |
+| Publish | `/fmu/in/offboard_control_mode` | `px4_msgs/OffboardControlMode` |
+
+---
+
 ### `dbl_gng_node`
 Implementasi algoritma **Double Growing Neural Gas (GNG)**. Memproses data point cloud dari depth camera (sensor IMX214) untuk membangun representasi topologis permukaan 3D di lingkungan sekitar drone.
+
+| Arah | Topic | Tipe |
+|------|-------|------|
+| Subscribe | `/depth_camera/points` | `sensor_msgs/PointCloud2` |
+| Publish | `/plane` | `sensor_msgs/PointCloud2` |
+| Publish | `/outlier` | `sensor_msgs/PointCloud2` |
+| Publish | `/graph_markers` | `visualization_msgs/Marker` |
+| Publish | `/segmentation_stats` | `std_msgs/String` |
+
+---
 
 ### `plane_segmentation_ransac`
 Melakukan segmentasi bidang datar dari data point cloud menggunakan algoritma **RANSAC (Random Sample Consensus)**. Mengidentifikasi permukaan horizontal yang berpotensi menjadi zona pendaratan.
 
+| Arah | Topic | Tipe |
+|------|-------|------|
+| Subscribe | `/depth_camera/points` | `sensor_msgs/PointCloud2` |
+| Publish | `/plane` | `sensor_msgs/PointCloud2` |
+| Publish | `/outlier` | `sensor_msgs/PointCloud2` |
+| Publish | `/segmentation_stats` | `std_msgs/String` |
+
+---
+
 ### `landing_circle`
-Menganalisis bidang datar hasil segmentasi dan mendeteksi area lingkaran yang cukup besar dan aman untuk pendaratan. Mengirimkan koordinat target pendaratan ke node kendali drone.
+Menganalisis bidang datar hasil segmentasi dan mendeteksi area lingkaran yang cukup besar dan aman untuk pendaratan. Menyimpan koordinat zona landing dalam frame `map` dan menerbitkan TF statis ke safety point.
+
+| Arah | Topic | Tipe |
+|------|-------|------|
+| Subscribe | `/plane` | `sensor_msgs/PointCloud2` |
+| Publish | `/safe_circle` | `sensor_msgs/PointCloud2` |
+| Publish | `/safe_circle_center_coords` | `geometry_msgs/PointStamped` |
+| Publish | `/landing_circle_stats` | `std_msgs/String` |
+| TF Publish | `map` → `safety_point` | Static TF |
+
+---
+
+### `stats_logger_node`
+Menerima statistik dari node segmentasi dan landing circle lalu menyimpannya ke file CSV. Hanya menulis baris baru ketika ada landing circle dengan koordinat baru yang belum pernah tersimpan sebelumnya.
+
+| Arah | Topic | Tipe |
+|------|-------|------|
+| Subscribe | `/segmentation_stats` | `std_msgs/String` |
+| Subscribe | `/landing_circle_stats` | `std_msgs/String` |
+| Subscribe | `/safe_circle_center_coords` | `geometry_msgs/PointStamped` |
+
+**Output file:**
+
+| File | Isi |
+|------|-----|
+| `segmentation_stats_<timestamp>.csv` | Statistik komputasi per frame (waktu, jumlah titik, ukuran plane) |
+| `landing_and_center_<timestamp>.csv` | Koordinat landing circle unik dalam frame `map`, hanya ditulis saat ada lokasi baru |
 
 ---
 
@@ -225,6 +280,7 @@ Project/drone*/
 ├── src/
 │   ├── gng_node/                              # Algoritma Growing Neural Gas
 │   ├── logger_stats/                          # Node logger CSV
+│   │   └── stats_logger_node.py               # Simpan data ke CSV
 │   ├── offboard_control/                      # Node kendali penerbangan
 │   ├── px4_msgs/                              # Definisi pesan PX4
 │   └── segmentation_node/                     # Pipeline persepsi
