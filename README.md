@@ -28,6 +28,7 @@ Pastikan semua dependensi berikut sudah terinstal sebelum menjalankan proyek ini
 | MicroXRCE-DDS Agent | latest |
 | Python | 3.10+ |
 | NVIDIA Driver | 520+ (untuk GPU rendering) |
+| QGroundControl | latest AppImage |
 
 ---
 
@@ -112,7 +113,19 @@ gz sim -g
 
 ---
 
-### Terminal 4 — Jalankan ROS-Gazebo Bridge
+### Terminal 4 — Jalankan QGroundControl (GCS)
+
+```bash
+chmod +x /home/mobi/QGroundControl-x86_64.AppImage
+/home/mobi/QGroundControl-x86_64.AppImage
+```
+
+> QGroundControl akan otomatis terhubung ke PX4 SITL melalui UDP port 14550.
+> Pastikan PX4 SITL (Terminal 2) sudah berjalan sebelum membuka QGroundControl.
+
+---
+
+### Terminal 5 — Jalankan ROS-Gazebo Bridge
 
 ```bash
 ros2 run ros_gz_bridge parameter_bridge \
@@ -127,7 +140,7 @@ ros2 run ros_gz_bridge parameter_bridge \
 
 ---
 
-### Terminal 5 — Jalankan MicroXRCE-DDS Agent
+### Terminal 6 — Jalankan MicroXRCE-DDS Agent
 
 ```bash
 MicroXRCEAgent udp4 -p 8888
@@ -137,10 +150,10 @@ MicroXRCEAgent udp4 -p 8888
 
 ---
 
-### Terminal 6 — Setup & Jalankan Workspace ROS2
+### Terminal 7 — Setup & Jalankan Workspace ROS2
 
 ```bash
-cd ~/Project/drone*/
+cd Projects/drone*
 
 source install/setup.bash
 ```
@@ -170,6 +183,22 @@ ros2 run plane_segmentation_ransac plane_segmentation_ransac
 ```bash
 ros2 run landing_circle landing_circle
 ```
+
+#### Node Logger Data (Stats Logger)
+
+```bash
+ros2 run segmentation_node stats_logger_node
+```
+
+Log CSV akan tersimpan secara otomatis di `~/ros2_logs/`. Untuk menentukan direktori output lain:
+
+```bash
+ros2 run segmentation_node stats_logger_node --ros-args -p output_dir:=/path/to/output
+```
+
+> Node ini menyimpan dua file CSV secara terpisah:
+> - `segmentation_stats_<timestamp>.csv` — statistik komputasi RANSAC per frame
+> - `landing_and_center_<timestamp>.csv` — data landing circle unik beserta koordinatnya dalam frame `map`, hanya ditulis ketika ada lokasi baru yang ditemukan
 
 ---
 
@@ -221,27 +250,5 @@ Pastikan Gazebo server (Terminal 1) sudah berjalan sepenuhnya sebelum menjalanka
 sleep 10 && make px4_sitl gz_x500_depth
 ```
 
-### ROS2 tidak menerima topik dari Gazebo
-Cek apakah `ros_gz_bridge` berjalan dengan:
-```bash
-ros2 topic list
-```
-Topik seperti `/camera_info` dan `/depth_camera/points` harus muncul.
-
-### MicroXRCEAgent gagal connect
-Pastikan PX4 SITL sudah berjalan sebelum menjalankan agent, dan tidak ada proses lain yang menggunakan port 8888:
-```bash
-sudo lsof -i :8888
-```
-
-### Node ROS2 tidak ditemukan
-Pastikan workspace sudah di-source:
-```bash
-source ~/Project/drone*/install/setup.bash
-```
-
----
-
-## Lisensi
-
-Proyek ini dikembangkan untuk keperluan riset robotika otonom. Lihat file `LICENSE` untuk detail lebih lanjut.
+### QGroundControl tidak terhubung ke PX4
+Pastikan PX4 SITL sudah berjalan dan MicroXRCE-DDS Agent aktif. QGroundControl mendengarkan di UDP port 14550 secara default — tidak perlu konfigurasi tambahan untuk koneksi lokal.# safety-landing-point-detection-for-drone
