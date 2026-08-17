@@ -10,6 +10,8 @@ setup.py
 ../../build/gng_node/gng_node.egg-info/zip-safe
 gng_node/__init__.py
 gng_node/dbl_gng.py
+gng_node/dbl_gng_cpu.py
+gng_node/dbl_gng_cpu_node.py
 gng_node/dbl_gng_node.py
 resource/gng_node
 test/test_copyright.py

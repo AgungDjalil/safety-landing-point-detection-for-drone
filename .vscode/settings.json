@@ -1,3 +1,16 @@
 {
-    "cmake.sourceDirectory": "/home/mobi/Projects/drone-vajraakhasa/src/offboard_control"
+    "cmake.sourceDirectory": "/home/mobi/Projects/drone-vajraakhasa/src/offboard_control",
+    "ros.distro": "humble",
+    "python.autoComplete.extraPaths": [
+        "/home/alphaone/Documents/safety-landing-point-detection-for-drone/install/px4_msgs/local/lib/python3.10/dist-packages",
+        "/home/alphaone/Documents/safety-landing-point-detection-for-drone/install/gng_node/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/alphaone/Documents/safety-landing-point-detection-for-drone/install/px4_msgs/local/lib/python3.10/dist-packages",
+        "/home/alphaone/Documents/safety-landing-point-detection-for-drone/install/gng_node/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
 }

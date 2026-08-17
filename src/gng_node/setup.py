@@ -24,7 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            "dbl_gng_node = gng_node.dbl_gng_node:main"
+            "dbl_gng_node = gng_node.dbl_gng_node:main",
+            "dbl_gng_cpu_node = gng_node.dbl_gng_cpu_node:main"
         ],
     },
 )
