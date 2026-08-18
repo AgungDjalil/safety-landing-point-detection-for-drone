@@ -17,22 +17,41 @@ class DroneKinematic : public rclcpp::Node
     public:
         DroneKinematic(const std::string &name) : Node(name)
         {
+            // ── ROS parameters ──────────────────────────────────────────────
+            // mode: "odometry" (subscribe + dynamic TF) atau "static" (hanya
+            //       publish static TF map->odom + base_link->camera_link).
+            // odometry_topic: topic input VehicleOdometry (mode "odometry").
+            declare_parameter<std::string>("mode", "odometry");
+            declare_parameter<std::string>("odometry_topic", "/fmu/out/vehicle_odometry");
+            const std::string mode = get_parameter("mode").as_string();
+            const std::string odom_topic = get_parameter("odometry_topic").as_string();
+
             tf_br_ = std::make_shared<tf2_ros::TransformBroadcaster>(this);
             cam_link_tf_br_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
-
-            rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
-            auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
-
-            sub_ = create_subscription<px4_msgs::msg::VehicleOdometry>(
-            "/fmu/out/vehicle_odometry", qos,
-            std::bind(&DroneKinematic::odom_callback, this, std::placeholders::_1));
             map_to_odom_tf_br_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
-            
+
             make_transforms();
             make_map_to_odom_tf();
 
-            RCLCPP_INFO(get_logger(), "Listening PX4 odometry on: /fmu/out/vehicle_odometry");
-            RCLCPP_INFO(get_logger(), "Publishing TF: odom -> base_link");
+            if (mode == "odometry") {
+                rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
+                auto qos = rclcpp::QoS(
+                    rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
+
+                sub_ = create_subscription<px4_msgs::msg::VehicleOdometry>(
+                    odom_topic, qos,
+                    std::bind(&DroneKinematic::odom_callback, this, std::placeholders::_1));
+
+                RCLCPP_INFO(get_logger(), "Listening PX4 odometry on: %s", odom_topic.c_str());
+                RCLCPP_INFO(get_logger(), "Publishing TF: odom -> base_link (dynamic)");
+            } else if (mode == "static") {
+                RCLCPP_INFO(get_logger(),
+                    "Static mode: only publishing map->odom + base_link->camera_link");
+            } else {
+                RCLCPP_WARN(get_logger(),
+                    "Unknown mode '%s' (expected 'odometry' | 'static'); falling back to static",
+                    mode.c_str());
+            }
         }
 
     private:
