@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# @name Gazebo x500 depth
+#
+# @type Quadrotor
+#
+
+PX4_SIM_MODEL=${PX4_SIM_MODEL:=x500_depth}
+
+# The Rubicon world is terrain, not a flat ground plane: the heightmap rises to
+# 5 m and spawning at the origin buries the vehicle inside it. Put it down on a
+# spot near the ranger station (the house sits at 14 1),
+# yawed so the depth camera looks at the building. Override with
+# PX4_GZ_MODEL_POSE to spawn somewhere else.
+if [ "${PX4_GZ_WORLD}" = "rubicon" ]
+then
+	PX4_GZ_MODEL_POSE=${PX4_GZ_MODEL_POSE:=11.689,-5.5473,4.382,0,0,1.2315}
+	export PX4_GZ_MODEL_POSE
+fi
+
+if [ "${PX4_GZ_WORLD}" = "forest_x4" ]
+then
+	PX4_GZ_MODEL_POSE=${PX4_GZ_MODEL_POSE:=10.2066,20.2602,0,0,0,0}
+	export PX4_GZ_MODEL_POSE
+fi
+
+. ${R}etc/init.d-posix/airframes/4001_gz_x500

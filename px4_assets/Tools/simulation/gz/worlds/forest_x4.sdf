@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  forest_x4.sdf — forest scene rebuilt from luispinto's "Forest with X4 hexarotor"
+  Fuel world (https://app.gazebosim.org/luispinto/fuel/worlds/Forest%20with%20X4%20hexarotor).
+
+  The original world referenced a private local model DB (file:///models_database/...) that
+  does not exist outside the author's machine, embedded a non-PX4 X4 hexarotor with a
+  velocity-control plugin, and used Fortress-era ignition-gazebo-* system plugins.
+
+  This file keeps luispinto's tree/grass LAYOUT but:
+    - strips the embedded hexarotor (PX4 spawns gz_x500_depth itself at runtime)
+    - strips warehouse clutter (pallets/boxes/shelf/lion/trashcan)
+    - rewrites broken local URIs to valid Fuel URIs (same as PX4 worlds/forest.sdf):
+        Oak Tree  -> OpenRobotics/Oak Tree
+        Pine Tree -> OpenRobotics/Pine Tree
+        grass    -> hexarotor/grasspatch
+    - adds a ground_plane at z=-0.05 (original had none; offset avoids Z-fighting
+      with the z=0 grasspatch visuals)
+    - omits inline system <plugin> blocks (PX4 loads systems via server.config,
+      see gz_env.sh.in GZ_SIM_SERVER_CONFIG_PATH; inline plugins would break startup)
+    - uses PX4 Zurich spherical coordinates + magnetic field for SITL consistency
+
+  Usage:  PX4_GZ_WORLD=forest_x4 make px4_sitl gz_x500_depth
+          (or: make px4_sitl gz_x500_depth_forest_x4  after a CMake reconfigure)
+-->
+<sdf version="1.9">
+  <world name="forest_x4">
+
+    <physics type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+
+    <scene>
+      <grid>false</grid>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1 1</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>1</iyy><iyz>0</iyz><izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 -0.05 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <!-- ================================================================== -->
+    <!-- Central objects: collapsed house + warehouse clutter                -->
+    <!-- ================================================================== -->
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Collapsed House</uri>
+      <name>Collapsed House</name>
+      <pose>0 8 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/Abdurrahman/models/aws_robomaker_warehouse_ClutteringC_01</uri>
+      <name>warehouse_ClutteringC_01</name>
+      <pose>5 -2.8 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/Abdurrahman/models/aws_robomaker_warehouse_ClutteringC_01</uri>
+      <name>warehouse_ClutteringC_02</name>
+      <pose>3.8 -1.8 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/Abdurrahman/models/aws_robomaker_warehouse_ClutteringC_01</uri>
+      <name>warehouse_ClutteringC_03</name>
+      <pose>6.2 -1.8 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/Abdurrahman/models/aws_robomaker_warehouse_ClutteringC_01</uri>
+      <name>warehouse_ClutteringC_04</name>
+      <pose>3.8 -3.8 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/Abdurrahman/models/aws_robomaker_warehouse_ClutteringC_01</uri>
+      <name>warehouse_ClutteringC_05</name>
+      <pose>6.2 -3.8 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/Abdurrahman/models/aws_robomaker_warehouse_PalletJackB_01</uri>
+      <name>warehouse_PalletJackB_01</name>
+      <pose>-1.4399 -2.8039 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Oak Tree</uri>
+      <name>Oak tree</name>
+      <pose>-9.64493 5.58923 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree</name>
+      <pose>-11.6473 9.84098 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_0</name>
+      <pose>-0.353325 22.2473 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_1</name>
+      <pose>2.24449 25.0326 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_2</name>
+      <pose>-2.84963 11.0521 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_3</name>
+      <pose>-1.81153 15.3998 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_4</name>
+      <pose>-7.08672 13.6986 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_5</name>
+      <pose>-5.15779 10.532 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_6</name>
+      <pose>-15.3186 13.029 -0.995817 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_7</name>
+      <pose>-19.5318 8.27788 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_8</name>
+      <pose>-18.7372 3.02491 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_9</name>
+      <pose>-19.4142 -5.95729 0.244529 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_10</name>
+      <pose>-19.4873 -9.33014 1.37717 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/hexarotor/models/grasspatch</uri>
+      <name>grasspatch</name>
+      <pose>2.71574 -2.80395 0 0 -0 0.006057</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/hexarotor/models/grasspatch</uri>
+      <name>grasspatch_0</name>
+      <pose>-12.2297 -2.64582 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/hexarotor/models/grasspatch</uri>
+      <name>grasspatch_1</name>
+      <pose>2.62754 12.1062 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/hexarotor/models/grasspatch</uri>
+      <name>grasspatch_2</name>
+      <pose>-12.0931 11.9289 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/hexarotor/models/grasspatch</uri>
+      <name>grasspatch_3</name>
+      <pose>16.9776 12.1962 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/hexarotor/models/grasspatch</uri>
+      <name>grasspatch_4</name>
+      <pose>2.28684 26.938 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/hexarotor/models/grasspatch</uri>
+      <name>grasspatch_5</name>
+      <pose>16.5899 26.9995 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_11</name>
+      <pose>10.0031 4.69601 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_12</name>
+      <pose>9.38057 2.24489 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_13</name>
+      <pose>8.95187 -2.43736 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_14</name>
+      <pose>9.54099 -5.29967 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_15</name>
+      <pose>8.56424 -7.36834 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_16</name>
+      <pose>7.04987 -9.30259 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_17</name>
+      <pose>4.64341 -9.56548 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_18</name>
+      <pose>2.39497 -9.53658 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_19</name>
+      <pose>-0.978211 -9.12685 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_20</name>
+      <pose>-6.60386 -9.4906 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
+      <name>Pine Tree_21</name>
+      <pose>-11.7872 -9.60952 0 0 -0 0</pose>
+    </include>
+
+    <light name="sun" type="directional">
+      <pose>0 0 500 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0.001 0.625 -0.78</direction>
+      <diffuse>0.904 0.904 0.904 1</diffuse>
+      <specular>0.271 0.271 0.271 1</specular>
+      <attenuation>
+        <range>2000</range>
+        <linear>0</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>47.397971057728974</latitude_deg>
+      <longitude_deg>8.546163739800146</longitude_deg>
+      <elevation>0</elevation>
+    </spherical_coordinates>
+
+  </world>
+</sdf>

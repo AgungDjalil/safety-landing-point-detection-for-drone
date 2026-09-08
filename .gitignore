@@ -181,3 +181,12 @@ config/credentials.*
 nohup.out
 core
 core.*
+
+# -----------------------------------------------------------------------------
+# Telemetri MAVLink / MAVProxy (hasil generate saat terbang)
+# -----------------------------------------------------------------------------
+mav.tlog
+mav.tlog.raw
+mav.parm
+*.tlog
+*.tlog.raw

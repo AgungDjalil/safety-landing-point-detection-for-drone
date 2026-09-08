@@ -1,3 +1,4 @@
+import json
 import time
 import numpy as np
 import rclpy
@@ -30,15 +31,51 @@ class DBLGNGCpuNode(Node):
         )
 
         self.latest_points: np.ndarray | None = None
+        self._latest_header = Header(frame_id="camera_link")
 
-        # ── cached stats untuk valid-point count (amortized) ──────────────────
-        self._frame_counter    = 0
-        self._valid_count_interval = 5          # hitung ulang tiap N frame
-        self._cached_valid_pts  = 0
-        self._cached_total_pts  = 0
-        self._cached_valid_pct  = 0.0
+        # ── metrik satu frame ─────────────────────────────────────────────────
+        # Dulu jumlah titik valid hanya dihitung ulang tiap frame ke-5 lalu
+        # nilai lamanya diterbitkan ulang di antaranya. Sebagai telemetri kasar
+        # itu tidak apa-apa; sebagai data per frame untuk dibandingkan dengan
+        # backend lain itu salah — empat dari lima baris membawa angka yang
+        # bukan miliknya. Sekarang dihitung tiap frame: satu lintasan numpy
+        # atas ~19k titik, tidak berarti dibanding langkah GNG-nya sendiri.
+        self._valid_pts    = 0
+        self._total_pts    = 0
+        self._valid_pct    = 0.0
+        self._downsampled  = 0
+        self._stamp_ns     = 0
 
         self.comp_ms = 0.0
+
+        # ── ROS parameters ──────────────────────────────────────────────────
+        # pointcloud_topic: sumber PointCloud2.
+        #   - Gazebo stack (gz_bridge_ros2): /depth_camera/points  (default)
+        #   - ZED camera real             : /zed/zed_node/point_cloud/cloud_registered
+        # use_sim_time dikelola otomatis oleh rclpy; set ke true dari launch
+        # file agar get_clock().now() mengikuti /clock (gz sim time) dan stamp
+        # output (/plane_cpu, /outlier_cpu, /graph_markers_cpu) match dengan TF.
+        self.declare_parameter(
+            "pointcloud_topic", "/depth_camera/points")
+        pc_topic = self.get_parameter("pointcloud_topic").value
+
+        # voxel_leaf: ukuran sel voxel (meter) untuk downsampling sebelum GNG.
+        #
+        # Ini yang menahan beban GNG: biaya batch_learning kira-kira linier
+        # terhadap jumlah titik (pencarian BMU = N titik x max_nodes), jadi
+        # leaf inilah tombol utama antara kerapatan dan laju.
+        #
+        # Nilai yang tepat TIDAK bisa ditentukan dari meja — kapasitas voxel
+        # per meter persegi bergantung pada ketinggian terbang dan kemiringan
+        # permukaan terhadap kamera. Sebagai acuan terukur: pada sensor 80x60,
+        # leaf 0.1 m hanya membuang 1% titik (4790 -> 4742) karena kerapatan
+        # mentahnya memang jauh di bawah kapasitas voxel. Sejak sensor
+        # dinaikkan ke 160x120, leaf mulai benar-benar mengikat.
+        #
+        # Naikkan bila computation_time GNG terlalu besar; turunkan bila masih
+        # ada anggaran waktu dan ingin cloud lebih rapat untuk landing_circle.
+        self.declare_parameter("voxel_leaf", 0.15)
+        self._voxel_leaf = float(self.get_parameter("voxel_leaf").value)
 
         self.marker_pub  = self.create_publisher(Marker,      "/graph_markers_cpu",      1)
         self.flat_pub    = self.create_publisher(PointCloud2, "/plane_cpu",              1)
@@ -47,7 +84,7 @@ class DBLGNGCpuNode(Node):
 
         self.create_subscription(
             PointCloud2,
-            "/zed/zed_node/point_cloud/cloud_registered",
+            pc_topic,
             self._pointcloud_callback,
             5,
         )
@@ -59,34 +96,67 @@ class DBLGNGCpuNode(Node):
         self.get_logger().info(
             f"DBL-GNG (CPU, multithreaded) node started | "
             f"workers: {self.gng.num_workers} | "
+            f"pointcloud_topic: {pc_topic} | "
+            f"use_sim_time: {self.get_parameter('use_sim_time').value} | "
             f"planarity_threshold: {self.gng.planarity_threshold}"
         )
 
     # ── helpers ───────────────────────────────────────────────────────────────
 
     def _update_valid_count(self, pts: np.ndarray):
-        """Hitung valid (finite) points, amortized tiap _valid_count_interval frame."""
-        self._frame_counter += 1
-        if self._frame_counter >= self._valid_count_interval:
-            self._frame_counter    = 0
-            self._cached_total_pts = len(pts)
-            self._cached_valid_pts = int(np.isfinite(pts).all(axis=1).sum())
-            self._cached_valid_pct = (
-                self._cached_valid_pts / self._cached_total_pts * 100.0
-                if self._cached_total_pts > 0 else 0.0
-            )
+        """Hitung titik valid (finite) untuk frame ini."""
+        self._total_pts = len(pts)
+        self._valid_pts = int(np.isfinite(pts).all(axis=1).sum())
+        self._valid_pct = (
+            self._valid_pts / self._total_pts * 100.0
+            if self._total_pts > 0 else 0.0
+        )
 
     def _publish_stats(self, comp_ms: float, plane_size: int, outlier_size: int):
-        """Publish stats string dengan format identik ke C++ node."""
+        """Terbitkan metrik satu frame sebagai JSON.
+
+        Muatannya JSON, bukan teks berformat, karena parser berbasis regex atas
+        format bebas sudah patah senyap dua kali di proyek ini — logger CSV-nya
+        berhenti menemukan koordinat kandidat tanpa satu pun pesan galat, dan
+        berkasnya kosong berbulan-bulan. Menambah field ke JSON tidak akan
+        pernah mematahkan pembacanya.
+
+        Baris log konsol tidak ikut berubah; itu untuk manusia.
+        """
         msg = String()
-        msg.data = (
-            f"computation_time: {comp_ms:.6f} ms\n"
-            f"valid_points: {self._cached_valid_pts}\n"
-            f"valid_percentage: {self._cached_valid_pct:.6f} %\n"
-            f"plane_size: {plane_size}\n"
-            f"outlier_size: {outlier_size}"
-        )
+        msg.data = json.dumps({
+            "source":             "gng",
+            "stamp_ns":           self._stamp_ns,
+            "computation_time_ms": round(comp_ms, 6),
+            "latency_ms":         self._latency_ms(),
+            "input_points":       self._total_pts,
+            "valid_points":       self._valid_pts,
+            "valid_percentage":   round(self._valid_pct, 6),
+            "downsampled_points": self._downsampled,
+            "plane_size":         int(plane_size),
+            "outlier_size":       int(outlier_size),
+            "voxel_leaf_m":       self._voxel_leaf,
+        })
         self.stats_pub.publish(msg)
+
+    def _latency_ms(self):
+        """Usia awan saat hasilnya terbit: sekarang − stempel masukan.
+
+        `computation_time` hanya mengukur bagian dalam callback; yang
+        menentukan seberapa segar peta yang dipakai drone adalah angka ini.
+
+        None bila belum ada stempel, atau bila use_sim_time mati. Yang kedua
+        penting: stempel awan berasal dari jam simulasi Gazebo, jadi
+        menguranginya dengan jam dinding menghasilkan angka besar yang
+        konsisten — salah, tapi tidak tampak salah sepintas. Lebih baik tidak
+        melaporkan apa pun daripada melaporkan itu.
+        """
+        if self._stamp_ns <= 0:
+            return None
+        if not self.get_parameter("use_sim_time").value:
+            return None
+        now_ns = self.get_clock().now().nanoseconds
+        return round((now_ns - self._stamp_ns) / 1e6, 6)
 
     # ── helpers ───────────────────────────────────────────────────────────────
 
@@ -119,10 +189,18 @@ class DBLGNGCpuNode(Node):
         pts_clean = pts_np[mask]
 
         # Voxel downsampling — kurangi ~110k pts → ~5-15k pts untuk GNG
-        downsampled = self._voxel_downsample(pts_clean, leaf=0.1)
+        downsampled = self._voxel_downsample(pts_clean, leaf=self._voxel_leaf)
         self.latest_points = downsampled
+        self._latest_header = msg.header
+        self._downsampled = int(len(downsampled))
 
-        # update valid-point cache (amortized) — pakai data asli sebelum downsample
+        # Stempel awan MASUKAN, digabung jadi satu bilangan bulat nanosekon.
+        # Inilah kunci yang memungkinkan baris dari topik berbeda digabungkan:
+        # waktu terima berbeda di tiap node dan bergeser oleh beban CPU,
+        # sedangkan stempel ini diwarisi dari pesan kamera yang sama.
+        self._stamp_ns = (int(msg.header.stamp.sec) * 1_000_000_000
+                          + int(msg.header.stamp.nanosec))
+
         self._update_valid_count(pts_np)
 
     def _process_gng(self):
@@ -171,9 +249,7 @@ class DBLGNGCpuNode(Node):
     # ── publishers ────────────────────────────────────────────────────────────
 
     def _publish_flat_points(self, points: np.ndarray):
-        header          = Header()
-        header.stamp    = self.get_clock().now().to_msg()
-        header.frame_id = "camera_link"
+        header = self._latest_header
         pts_list        = points[:, :3].tolist() if len(points) > 0 else []
         self.flat_pub.publish(point_cloud2.create_cloud_xyz32(header, pts_list))
 
@@ -196,7 +272,7 @@ class DBLGNGCpuNode(Node):
         pcd_data['rgb'] = 0xFF0000  # merah
 
         msg = point_cloud2.create_cloud(
-            Header(stamp=self.get_clock().now().to_msg(), frame_id="camera_link"),
+            self._latest_header,
             [
                 point_cloud2.PointField(name='x',   offset=0,  datatype=point_cloud2.PointField.FLOAT32, count=1),
                 point_cloud2.PointField(name='y',   offset=4,  datatype=point_cloud2.PointField.FLOAT32, count=1),
@@ -208,8 +284,8 @@ class DBLGNGCpuNode(Node):
         self.outlier_pub.publish(msg)
 
     def _publish_graph(self, node_list: np.ndarray, edge_list: np.ndarray):
-        stamp     = self.get_clock().now().to_msg()
-        frame_id  = "camera_link"
+        stamp     = self._latest_header.stamp
+        frame_id  = self._latest_header.frame_id
         num_nodes = node_list.shape[0]
 
         node_marker                 = Marker()

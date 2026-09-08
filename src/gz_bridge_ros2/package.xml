@@ -32,8 +32,15 @@
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>rviz2</exec_depend>
 
+  <!-- Nodes this launch starts from other packages: the plane-segmentation
+       front-ends selected by `perception`, and the trajectory trail. -->
+  <exec_depend>gng_node</exec_depend>
+  <exec_depend>segmentation_node</exec_depend>
+  <exec_depend>path_trail</exec_depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

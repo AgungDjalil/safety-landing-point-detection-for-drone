@@ -29,12 +29,6 @@ find_package(OpenMP)
 # Global PCL defs (pilih salah satu gaya: global atau per-target)
 add_definitions(${PCL_DEFINITIONS})
 
-# ---- cylinder_crop ----
-add_executable(cylinder_crop src/cylinder_crop.cpp)
-ament_target_dependencies(cylinder_crop rclcpp sensor_msgs pcl_conversions tf2_ros)
-target_include_directories(cylinder_crop PUBLIC ${PCL_INCLUDE_DIRS})
-target_link_libraries(cylinder_crop ${PCL_LIBRARIES})
-
 # ---- plane_segmentation_gng ----
 add_executable(plane_segmentation_gng src/plane_segmentation_gng.cpp)
 ament_target_dependencies(plane_segmentation_gng rclcpp sensor_msgs pcl_conversions visualization_msgs)
@@ -65,8 +59,10 @@ if(OpenMP_CXX_FOUND)
 endif()
 
 # ---- landing_circle ----
-add_executable(landing_circle src/landing_circle.cpp)
-ament_target_dependencies(landing_circle rclcpp sensor_msgs pcl_conversions tf2 tf2_ros tf2_eigen)
+add_executable(landing_circle src/landing_circle.cpp src/landing_registry.cpp)
+ament_target_dependencies(landing_circle
+  rclcpp sensor_msgs pcl_conversions tf2 tf2_ros tf2_eigen
+  visualization_msgs geometry_msgs std_msgs)
 target_include_directories(landing_circle PUBLIC 
     ${PCL_INCLUDE_DIRS}
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -84,7 +80,6 @@ ament_target_dependencies(cloud_size_node
 # ---- install ----
 install(TARGETS
   landing_circle
-  cylinder_crop
   plane_segmentation_gng
   plane_segmentation_ransac
   ddgng_node
@@ -100,6 +95,18 @@ if(BUILD_TESTING)
   set(ament_cmake_copyright_FOUND TRUE)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
+
+  # ---- unit test LandingRegistry ----
+  # Registry bebas ROS/PCL, jadi test ini hanya butuh Eigen.
+  find_package(ament_cmake_gtest REQUIRED)
+  ament_add_gtest(test_landing_registry
+    test/test_landing_registry.cpp
+    src/landing_registry.cpp)
+  if(TARGET test_landing_registry)
+    target_include_directories(test_landing_registry PRIVATE
+      ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    target_link_libraries(test_landing_registry Eigen3::Eigen)
+  endif()
 endif()
 
 ament_package()

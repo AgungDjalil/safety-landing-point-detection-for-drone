@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>px4_offboard_lib</name>
+  <version>0.0.0</version>
+  <description>Pure helpers for PX4 offboard control: frame conversion, message builders, and arrival hysteresis. Library only — contains no ROS nodes.</description>
+  <maintainer email="agungfirmansyahdjalil@gmail.com">alphaone</maintainer>
+  <license>TODO: License declaration</license>
+
+  <!-- No rclpy: this package is deliberately free of node/runtime state so its
+       contents can be unit tested without a ROS graph. -->
+  <exec_depend>px4_msgs</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

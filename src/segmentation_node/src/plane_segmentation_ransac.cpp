@@ -91,9 +91,7 @@ private:
     // [OPT-NEW] processing_ = true selama thread pipeline berjalan
     std::atomic<bool> processing_;
 
-    // ─── Valid-point count (amortized tiap N frame) ──────────────────────────
-    static constexpr int VALID_COUNT_INTERVAL = 5;
-    int    frame_counter_    {0};
+    // ─── Valid-point count (tiap frame) ──────────────────────────────────────
     size_t cached_valid_pts_ {0};
     size_t cached_total_grid_{0};
     double cached_valid_pct_ {0.0};
@@ -166,6 +164,23 @@ private:
         return msg;
     }
 
+    // Usia awan saat hasilnya terbit: sekarang − stempel masukan.
+    //
+    // `computation_time` hanya mengukur bagian dalam callback; yang menentukan
+    // seberapa segar peta yang dipakai drone adalah angka ini.
+    //
+    // "null" bila use_sim_time mati. Itu bukan kehati-hatian berlebihan:
+    // stempel awan berasal dari jam simulasi Gazebo, jadi menguranginya dengan
+    // jam dinding menghasilkan angka besar yang konsisten — salah, tapi tidak
+    // tampak salah sepintas. Lebih baik tidak melaporkan apa pun.
+    std::string latencyJson(long long stamp_ns)
+    {
+        if (stamp_ns <= 0) return "null";
+        if (!this->get_parameter("use_sim_time").as_bool()) return "null";
+        const long long now_ns = this->now().nanoseconds();
+        return std::to_string(static_cast<double>(now_ns - stamp_ns) / 1e6);
+    }
+
     // ─── Pipeline utama — dipanggil di thread terpisah ───────────────────────
     void pipeline(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
     {
@@ -174,15 +189,18 @@ private:
         // Snapshot parameter agar thread-safe terhadap perubahan parameter live
         const Params p = params_;
 
-        // 1. Valid-point count (amortized)
-        ++frame_counter_;
-        if (frame_counter_ >= VALID_COUNT_INTERVAL) {
-            frame_counter_ = 0;
-            countValidPointsRaw(*msg,
-                cached_total_grid_,
-                cached_valid_pts_,
-                cached_valid_pct_);
-        }
+        // 1. Valid-point count -- TIAP FRAME.
+        //
+        // Dulu hanya dihitung ulang tiap frame ke-5 lalu nilai lamanya
+        // diterbitkan ulang di antaranya. Sebagai telemetri kasar itu tidak
+        // apa-apa; sebagai data per frame untuk dibandingkan dengan backend
+        // lain itu salah -- empat dari lima baris membawa angka yang bukan
+        // miliknya. Satu lintasan atas ~19k titik tidak berarti dibanding
+        // estimasi normal dan RANSAC-nya sendiri.
+        countValidPointsRaw(*msg,
+            cached_total_grid_,
+            cached_valid_pts_,
+            cached_valid_pct_);
 
         // 2. Convert ROS → PCL
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
@@ -262,13 +280,29 @@ private:
         double comp_ms = std::chrono::duration_cast<std::chrono::microseconds>(
             end_time - start_time).count() / 1000.0;
 
+        // Muatannya JSON, bukan teks berformat: parser berbasis regex atas
+        // format bebas sudah patah senyap dua kali di proyek ini, dan logger
+        // CSV-nya berhenti menulis tanpa satu pun pesan galat. Menambah field
+        // ke JSON tidak akan pernah mematahkan pembacanya. Baris log konsol di
+        // bawah tidak ikut berubah -- itu untuk manusia.
+        const long long stamp_ns =
+            static_cast<long long>(msg->header.stamp.sec) * 1000000000LL
+            + static_cast<long long>(msg->header.stamp.nanosec);
+
         auto stats_msg = std_msgs::msg::String();
         stats_msg.data =
-            "computation_time: "    + std::to_string(comp_ms)          + " ms\n" +
-            "valid_points: "        + std::to_string(cached_valid_pts_) + "\n"   +
-            "valid_percentage: "    + std::to_string(cached_valid_pct_) + " %\n" +
-            "plane_size: "          + std::to_string(plane_xyz->size()) + "\n"   +
-            "outlier_size: "        + std::to_string(outlier_xyz->size());
+            std::string("{\"source\": \"ransac\"") +
+            ", \"stamp_ns\": "            + std::to_string(stamp_ns) +
+            ", \"computation_time_ms\": " + std::to_string(comp_ms) +
+            ", \"latency_ms\": "          + latencyJson(stamp_ns) +
+            ", \"input_points\": "        + std::to_string(cached_total_grid_) +
+            ", \"valid_points\": "        + std::to_string(cached_valid_pts_) +
+            ", \"valid_percentage\": "    + std::to_string(cached_valid_pct_) +
+            ", \"downsampled_points\": "  + std::to_string(ds_cloud->size()) +
+            ", \"plane_size\": "          + std::to_string(plane_xyz->size()) +
+            ", \"outlier_size\": "        + std::to_string(outlier_xyz->size()) +
+            ", \"leaf_size_m\": "         + std::to_string(p.leaf_size) +
+            "}";
         pub_stats_->publish(stats_msg);
 
         RCLCPP_INFO(this->get_logger(),

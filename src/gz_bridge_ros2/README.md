@@ -63,7 +63,7 @@ the **short** topics:
   via snap instead, pass `agent_bin:=micro-xrce-dds-agent`.
 - PX4-Autopilot built at least once for SITL:
   ```sh
-  cd /home/alphaone/PX4-Autopilot && make px4_sitl
+  cd ~/PX4-Autopilot && make px4_sitl
   ```
 
 ## Build
@@ -73,7 +73,7 @@ workspace (`src/gz_bridge_ros2/`). The `drone_kinematic` node compiles C++ and
 depends on `px4_msgs` (also in this workspace), so build both the first time:
 
 ```sh
-cd /home/alphaone/Documents/safety-landing-point-detection-for-drone
+cd ~/ros2_ws
 colcon build --packages-select px4_msgs gz_bridge_ros2
 source install/setup.bash
 # later (px4_msgs already installed):
@@ -94,10 +94,10 @@ With overrides (e.g. headless Gazebo + RViz + snap agent binary):
 ros2 launch gz_bridge_ros2 depth_bridge_launch.py \
     world:=baylands model:=x500_depth instance:=x500_depth_0 \
     dds_port:=8888 agent_bin:=micro-xrce-dds-agent \
-    headless:=true rviz:=true px4_dir:=/home/alphaone/PX4-Autopilot
+    headless:=true rviz:=true px4_dir:=~/PX4-Autopilot
 ```
 
-> `px4_dir` defaults to `/home/alphaone/PX4-Autopilot`. If your PX4 checkout is
+> `px4_dir` defaults to `~/PX4-Autopilot`. If your PX4 checkout is
 > elsewhere, set `PX4_SOURCE_DIR` or pass `px4_dir:=<path>`.
 
 ## Verify
@@ -116,17 +116,61 @@ ros2 topic echo /tf_static --once                 # map->odom, base_link->camera
 ros2 run tf2_tools view_frames                    # generates a frames.pdf
 ```
 
-## Cara masuk ke commander (MAVLink CLI)
+## Cara masuk ke commander (pxh> prompt langsung)
 
-PX4 SITL yang dijalankan via `ros2 launch` tidak menerima stdin (prompt `pxh>`
-tampil tapi tidak bisa diketik). Untuk mengirim commander command (arm/takeoff/
-land/mode/params) dari shell, pakai wrapper MAVProxy yang sudah disediakan:
+Default launch (`start_px4:=false`) **tidak** menjalankan PX4 maupun Gazebo —
+Anda menjalankannya manual di terminal terpisah, sehingga mendapat prompt
+interaktif `pxh>` dari PX4 (bisa `commander takeoff`, `param set`, dll).
+Saat launch start, ia mencetak 3 command copy-paste ready di log.
 
 ```sh
-# Terminal 1: jalankan stack (agent + PX4 SITL + Gazebo + TF + depth bridge)
-ros2 launch gz_bridge_ros2 depth_bridge_launch.py
+# Terminal 1: ROS 2 stack (agent + clock/depth bridge + TF + perception + RViz)
+ros2 launch gz_bridge_ros2 depth_bridge_launch.py rviz:=true perception:=gng_cpu
+# ...or the RANSAC front-end instead:
+# ros2 launch gz_bridge_ros2 depth_bridge_launch.py rviz:=true perception:=ransac
+# -> launch prints the exact Terminal A/B/C commands below; copy-paste them.
 
-# Terminal 2 (setelah PX4 boot, ~10-20 dtk): masuk ke commander
+# Terminal A: gz server (sim physics, no GUI)
+gz sim -r -s ~/PX4-Autopilot/Tools/simulation/gz/worlds/rubicon.sdf
+
+# Terminal B: PX4 SITL — dapat prompt pxh> interaktif
+cd ~/PX4-Autopilot && PX4_GZ_WORLD=rubicon PX4_UXRCE_DDS_PORT=8888 \
+    make px4_sitl gz_x500_depth
+# PX4 auto-detects gz server (via /world/rubicon/clock) -> spawn model +
+# start gz_bridge. agent + ros_gz_bridge dari launch auto-connect.
+
+# Terminal C: gz GUI (opsional)
+gz sim -g
+```
+
+`PX4_GZ_WORLD` harus match `world` launch (default `rubicon`).
+`PX4_UXRCE_DDS_PORT` harus match `dds_port` launch (default `8888`).
+
+### Cheat-sheet minimal (prompt `pxh>`)
+
+| Command             | Efek                              |
+|---------------------|-----------------------------------|
+| `commander arm`     | Arm motor                         |
+| `commander disarm`  | Disarm                            |
+| `commander takeoff` | Takeoff (altitude default)        |
+| `commander land`    | Landing di tempat                 |
+| `mode POSCTL`       | Switch ke mode position control   |
+| `mode AUTO`         | Switch ke mode auto mission      |
+| `mode OFFBOARD`     | Switch ke mode offboard          |
+| `param show <NAME>` | Lihat nilai param                 |
+| `param set <NAME> <VAL>` | Set param (efektif setelah reboot) |
+
+## Alternatif: MAVLink CLI (MAVProxy)
+
+Kalau Anda memakai `start_px4:=true` (PX4 dijalankan launch, prompt `pxh>`
+tidak menerima stdin), atau ingin kontrol dari terminal lain tanpa
+menghentikan PX4, pakai wrapper MAVProxy yang sudah disediakan:
+
+```sh
+# Terminal 1: stack dengan PX4 bundled
+ros2 launch gz_bridge_ros2 depth_bridge_launch.py start_px4:=true rviz:=true
+
+# Terminal 2 (setelah PX4 boot, ~10-20 dtk): masuk ke MAVProxy
 source install/setup.bash
 ros2 run gz_bridge_ros2 mavlink_cli
 # muncul prompt MAVProxy> ; ketik command, exit/ctrl-D untuk keluar.
@@ -142,9 +186,7 @@ Prasyarat: `mavproxy.py` di PATH (sudah terpasang di mesin ini di
 `~/.local/bin/`; kalau hilang: `python3 -m pip install --user MAVProxy
 pymavlink`).
 
-### Cheat-sheet minimal
-
-| Command             | Efek                              |
+| Command MAVProxy    | Efek                              |
 |---------------------|-----------------------------------|
 | `arm throttle`      | Arm motor                         |
 | `disarm`            | Disarm                            |
@@ -162,24 +204,107 @@ Argumen pertama boleh diberi prefix `--` jika membawa opsi MAVProxy:
 
 ## Arguments
 
-| Argument    | Default                       | Description |
-|-------------|-------------------------------|-------------|
-| `world`     | `baylands`                    | Gazebo world name (Tools/simulation/gz/worlds/<world>.sdf) |
-| `model`     | `x500_depth`                  | PX4 Gz model name (without `gz_` prefix) |
-| `instance`  | `x500_depth_0`               | Spawned model instance name (for TF frames) |
-| `dds_port`  | `8888`                        | microXRCE-DDS agent UDP port (matches UXRCE_DDS_PRT) |
-| `agent_bin` | `MicroXRCEAgent`              | Agent binary (`MicroXRCEAgent` or `micro-xrce-dds-agent`) |
-| `headless`  | `false`                       | Run Gazebo headless (`HEADLESS=1`) |
-| `rviz`      | `false`                       | Start RViz2 with the x500_depth preset |
-| `px4_dir`   | `$PX4_SOURCE_DIR` or repo root | Where `make px4_sitl` is run |
+| Argument        | Default                       | Description |
+|-----------------|-------------------------------|-------------|
+| `world`         | `rubicon`                     | Gazebo world name (Tools/simulation/gz/worlds/<world>.sdf) |
+| `model`         | `x500_depth`                  | PX4 Gz model name (without `gz_` prefix) |
+| `instance`      | `x500_depth_0`               | Spawned model instance name (for TF frames) |
+| `dds_port`      | `8888`                        | microXRCE-DDS agent UDP port (matches UXRCE_DDS_PRT) |
+| `agent_bin`     | `MicroXRCEAgent`              | Agent binary (`MicroXRCEAgent` or `micro-xrce-dds-agent`) |
+| `headless`      | `false`                       | Run Gazebo headless (`HEADLESS=1`, bundled mode only) |
+| `rviz`          | `false`                       | Start RViz2 with the x500_depth preset |
+| `px4_dir`       | `$PX4_SOURCE_DIR` or repo root | Where `make px4_sitl` is run |
+| `start_px4`     | `false`                       | `true` = launch runs `make px4_sitl` bundled (gz auto-launch, non-interactive). `false` (default) = run gz sim + PX4 manually for interactive `pxh>` prompt; launch only starts agent + bridges + TF + perception + RViz |
+| `perception`    | `none`                        | Plane-segmentation front-end: `gng_cpu` \| `gng_gpu` \| `ransac` \| `none` (off). See below |
+| `perception_input` | `/depth_camera/points`     | Input PointCloud2 topic for the chosen front-end (override to `/zed/zed_node/point_cloud/cloud_registered` for real ZED) |
+| `voxel_leaf`    | `0.15`                        | Voxel cell size in metres, passed to **both** front-ends — see below |
+| `path_trail`    | `true`                        | Start `path_trail_node` (drone trajectory as `nav_msgs/Path` on `/drone_path`) |
+
+### Choosing the plane-segmentation front-end
+
+One argument, one choice — two front-ends can never run at once and fight for
+the CPU.
+
+| `perception` | nodes started | publishes |
+|---|---|---|
+| `none` (default) | — | — |
+| `gng_cpu` | `dbl_gng_cpu` (numpy, no torch) | `/plane_cpu`, `/outlier_cpu` |
+| `gng_gpu` | `dbl_gng` (torch, cuda/cpu fallback) | `/plane_cpu`, `/outlier_cpu` |
+| `ransac` | `plane_segmentation_ransac` | `/plane`, `/outlier` |
+
+### Feeding both front-ends the same cloud
+
+The point of one launch offering both is to compare them, and that comparison
+is only about the algorithms if they receive the same input. Three things used
+to differ; all three are settled here.
+
+| stage | GNG (cpu) | RANSAC (as shipped) |
+|---|---|---|
+| topic | `/depth_camera/points` | `/depth_camera/points` |
+| drop NaN | yes | yes |
+| **cylinder crop** | none | `cylinder_crop` in front *(node since deleted)* |
+| **spatial filter** | none | PassThrough `z ∈ [-5, 5]` |
+| **voxel** | `voxel_leaf` = 0.15 | `leaf_size` = 0.07 |
+
+**`voxel_leaf` reaches both.** GNG calls the parameter `voxel_leaf`, RANSAC
+calls it `leaf_size`; this launch maps one argument onto both names so they
+can never drift apart. Before that, the two ran at 19200→6445 (RANSAC) against
+19200→~2000 (GNG), and their computation times were not comparable.
+
+**`cylinder_crop` is gone from this launch — and, since this was written, the
+node has been deleted from `segmentation_node` entirely.** It kept points within a radius
+of the x-y origin, but in `camera_link` **x is the depth axis**. Measured in
+flight at an 11 m scan altitude:
+
+```
+/depth_camera/points  frame=camera_link  n=19200
+    x:   0.21 ..  14.81   median  12.51     <- depth
+    y:  -8.22 ..   9.92   median   0.04
+    z:  -8.15 ..   7.40   median   0.03
+/circle_cloud         frame=camera_link  n=4
+```
+
+The ground plane lies in y-z — which is why `landing_circle` is configured
+`plane_axes=yz`. A 5 m cylinder on x-y therefore throws the ground away:
+19200 points in, 4 out, and RANSAC then publishes nothing at all, so
+`safety_point` never appears and the mission times out holding at the
+waypoint. It only appears to work with the camera close to the ground.
+`src/segmentation_node/launch/ransac_pipeline.launch.py` still has that chain
+if it is ever wanted back.
+
+**The RANSAC PassThrough is disabled** (`z_min`/`z_max` ±1000). `z` is a
+lateral axis in `camera_link`, spanning −8.15..7.40 m at that altitude, so
+`[-5, 5]` cuts the outer band of a field of view GNG keeps. That is an input
+filter, not part of the algorithm.
+
+Not touched: RANSAC's `setAxis(1,0,0)` + `setEpsAngle(5°)`. That is a model
+constraint — part of the algorithm being compared.
+
+`gng_gpu` has no voxel stage at all (`dbl_gng_node` declares no `voxel_leaf`),
+so `voxel_leaf` is not passed to it and it is not comparable with `ransac` on
+input load. The valid comparison is **`gng_cpu` against `ransac`**.
+
+**The landing-point search is not started here.** `landing_circle` is started
+by `offboard_mission/waypoint_node` when the drone arrives, and its default
+`perception_commands` hard-codes `input_topic:=/plane_cpu` — the GNG topic. So
+`perception:=ransac` on its own publishes a `/plane` nothing reads. The launch
+prints the matching `waypoint_node` command for whichever mode you chose; copy
+it from the log:
+
+```sh
+ros2 run offboard_mission waypoint_node --ros-args \
+    -p perception_commands:="['landing_circle: ros2 run segmentation_node \
+       landing_circle --ros-args -p input_topic:=/plane -p outlier_topic:=/outlier']"
+```
 
 ## Caveats
 
 - The first `make px4_sitl gz_x500_depth` invocations build PX4 and can be slow;
   subsequent runs use the build cache (`build/px4_sitl_default/`).
-- PX4's interactive console does not accept stdin while it is a child of
-  `ros2 launch`. For commander interaction (arming, mode changes) either use
-  MAVLink from another tool or run PX4 SITL in another terminal and limit this
-  launch to the agent + depth bridge.
+- **PX4's interactive console does not accept stdin while it is a child of
+  `ros2 launch`** (prompt `pxh>` tampil tapi tidak bisa diketik). For commander
+  interaction use the DEFAULT mode `start_px4:=false` and run PX4 manually in
+  another terminal, or use the MAVProxy wrapper (`ros2 run gz_bridge_ros2
+  mavlink_cli`) with `start_px4:=true`.
 - `Tools/simulation/gz` is a git submodule of the PX4 repo, so this package
   intentionally lives **outside** it, in this workspace's `src/gz_bridge_ros2/`.

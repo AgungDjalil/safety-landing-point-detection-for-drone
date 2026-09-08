@@ -16,8 +16,8 @@
 # Pass --help to see MAVProxy options. Exit with `Ctrl-D` or `exit`.
 #
 # Prerequisites:
-#   - MAVProxy + pymavlink installed. On this machine it is already at
-#     /home/alphaone/.local/bin/mavproxy.py. Otherwise install with:
+#   - MAVProxy + pymavlink installed. A user-local install at
+#     ~/.local/bin/mavproxy.py is picked up automatically. Otherwise install with:
 #         python3 -m pip install --user MAVProxy pymavlink
 #   - PX4 SITL running (e.g. via `ros2 launch gz_bridge_ros2 depth_bridge_launch.py`)
 #     — the MAVLink port is only open once PX4 has booted.
@@ -34,9 +34,9 @@ if [ -n "${MAVPY:-}" ]; then
     MAVP="$MAVPY"
 else
     MAVP="$(command -v mavproxy.py || true)"
-    # Fall back to the user-local install on this machine.
-    if [ -z "$MAVP" ] && [ -x "/home/alphaone/.local/bin/mavproxy.py" ]; then
-        MAVP="/home/alphaone/.local/bin/mavproxy.py"
+    # Fall back to the conventional user-local pip install.
+    if [ -z "$MAVP" ] && [ -x "$HOME/.local/bin/mavproxy.py" ]; then
+        MAVP="$HOME/.local/bin/mavproxy.py"
     fi
 fi
 

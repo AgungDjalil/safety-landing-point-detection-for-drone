@@ -57,6 +57,13 @@ if(BUILD_TESTING)
   set(ament_cmake_copyright_FOUND TRUE)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
+
+  # The `perception` mode table in launch/depth_bridge_launch.py. Its
+  # conditions are substitutions evaluated at launch time, so a mistake there
+  # produces a launch that looks healthy while starting nothing -- no error to
+  # notice. Pinned here instead.
+  find_package(ament_cmake_pytest REQUIRED)
+  ament_add_pytest_test(test_depth_bridge_launch test/test_depth_bridge_launch.py)
 endif()
 
 ament_package()

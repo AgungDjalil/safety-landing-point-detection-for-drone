@@ -48,10 +48,21 @@ class DBLGNGNode(Node):
         self.outlier_pub = self.create_publisher(PointCloud2, "/outlier",             1)
         self.stats_pub   = self.create_publisher(String,      "/segmentation_stats",  10)
 
+        # ── ROS parameters ──────────────────────────────────────────────────
+        # pointcloud_topic: sumber PointCloud2.
+        #   - Gazebo stack (gz_bridge_ros2): /depth_camera/points  (default)
+        #   - ZED camera real             : /zed/zed_node/point_cloud/cloud_registered
+        # use_sim_time dikelola otomatis oleh rclpy; set ke true dari launch
+        # file agar get_clock().now() mengikuti /clock (gz sim time) dan stamp
+        # output match dengan TF.
+        self.declare_parameter(
+            # "pointcloud_topic", "/depth_camera/points")
+            "pointcloud_topic", "/zed/zed_node/point_cloud/cloud_registered")
+        pc_topic = self.get_parameter("pointcloud_topic").value
+
         self.create_subscription(
             PointCloud2,
-            # "/zed/zed_node/point_cloud/cloud_registered",
-            "/depth_camera/points",
+            pc_topic,
             self._pointcloud_callback,
             5,
         )
@@ -62,6 +73,8 @@ class DBLGNGNode(Node):
 
         self.get_logger().info(
             f"DBL-GNG node started | device: {self.gng.device} | "
+            f"pointcloud_topic: {pc_topic} | "
+            f"use_sim_time: {self.get_parameter('use_sim_time').value} | "
             f"planarity_threshold: {self.gng.planarity_threshold}"
         )
 
