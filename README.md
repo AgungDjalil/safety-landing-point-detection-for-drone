@@ -595,7 +595,7 @@ cd ~/ros2_ws
 source install/setup.bash
 
 ros2 launch gz_bridge_ros2 depth_bridge_launch.py \
-  world:=rubicon start_px4:=false rviz:=false
+  world:=rubicon start_px4:=false rviz:=false perception:=gng_cpu
 ```
 
 Satu perintah ini menggantikan empat proses yang dulu punya terminal
@@ -698,7 +698,7 @@ source install/setup.bash
 #### Jalur normal — satu perintah
 
 ```bash
-ros2 launch gz_bridge_ros2 depth_bridge_launch.py world:=rubicon rviz:=true perception:=gng_cpu
+ros2 run offboard_mission waypoint_node --ros-args   -p target_x:=-0.17 -p target_y:=8.6 -p target_z:=11.0   -p use_sim_time:=true
 ```
 
 Itu saja. `waypoint_node` **menyalakan sendiri** `dbl_gng_cpu_node` dan
